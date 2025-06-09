@@ -48,7 +48,6 @@ st.set_page_config(
 if 'theme_mode' not in st.session_state:
     st.session_state.theme_mode = 'light'
 
-# Display Settings section
 st.sidebar.markdown("### 🎨 Display Settings")
 
 # Toggle button for theme switching
@@ -58,15 +57,16 @@ dark_mode = st.sidebar.toggle(
     help="Switch between light and dark theme"
 )
 
-# Apply theme changes
-if dark_mode and st.session_state.theme_mode == 'light':
-    st.session_state.theme_mode = 'dark'
-    st.rerun()
-elif not dark_mode and st.session_state.theme_mode == 'dark':
-    st.session_state.theme_mode = 'light'
+# Apply theme changes with forced rerun
+if dark_mode != (st.session_state.theme_mode == 'dark'):
+    if dark_mode:
+        st._config.set_option('theme.base', 'dark')
+        st.session_state.theme_mode = 'dark'
+    else:
+        st._config.set_option('theme.base', 'light')
+        st.session_state.theme_mode = 'light'
     st.rerun()
 
-st.sidebar.markdown("---")  # Add separator
 # ===== END THEME TOGGLE =====
 # ==========================================
 
