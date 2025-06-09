@@ -192,3 +192,9 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+x.py
+update_gtfs.py
+filter_gtfs_data.py
+apartment_check.py
+analyze_needed_data.py

@@ -1,0 +1,49 @@
+{
+  "analysis_time": "2025-06-10T00:40:16.992888",
+  "root_path": "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter",
+  "statistics": {
+    "total_files": 31,
+    "total_dirs": 13,
+    "total_size": 8358862,
+    "file_types": {
+      ".toml": 1,
+      ".pkl": 2,
+      ".xlsx": 1,
+      ".txt": 12,
+      "": 4,
+      ".tag": 1,
+      ".md": 2,
+      ".py": 8
+    },
+    "large_files": [],
+    "python_files": [
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\src\\analysis.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\src\\analyze_needed_data.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\src\\apartment_check.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\src\\filter_gtfs_data.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\src\\scraper.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\src\\update_gtfs.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\app.py",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\x.py"
+    ],
+    "data_files": [
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\apartment\\warsaw_private_owner_apartments.xlsx",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\agency.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\attributions.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\calendar.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\calendar_dates.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\feed_info.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\frequencies.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\routes.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\shapes.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\stop_times.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\stops.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\data\\transport\\trips.txt",
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\requirements.txt"
+    ],
+    "config_files": [
+      "C:\\Users\\Furkan\\Documents\\GitHub\\warsaw-apartment-hunter\\.streamlit\\config.toml"
+    ]
+  },
+  "structure_analyzed": true
+}

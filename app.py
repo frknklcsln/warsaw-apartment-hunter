@@ -52,22 +52,21 @@ st.set_page_config(
 
 # Get project root directory
 project_root = Path(__file__).resolve().parent
-
 # Application configuration - uses optimized/filtered GTFS data (99% smaller than original)
 CONFIG = {
     # Apartment data source
-    'apartments_path': str(project_root / 'data' / 'apartment' / 'warsaw_private_owner_apartments.xlsx'),
+    'apartments_path': project_root / 'data' / 'apartment' / 'warsaw_private_owner_apartments.xlsx',
     'apartments_sheet': 'Private_Owner_Apartments',
 
     # Optimized transport data (filtered to only include routes serving work location)
     # These files are 99% smaller than original GTFS data while maintaining full accuracy
-    'stops_path': str(project_root / 'data' / 'transport' / 'stops.txt'),
-    'stop_times_path': str(project_root / 'data' / 'transport' / 'stop_times.txt'),
-    'trips_path': str(project_root / 'data' / 'transport' / 'trips.txt'),
-    'routes_path': str(project_root / 'data' / 'transport' / 'routes.txt'),
-    'shapes_path': str(project_root / 'data' / 'transport' / 'shapes.txt'),
-    'calendar_path': str(project_root / 'data' / 'transport' / 'calendar.txt'),
-    'calendar_dates_path': str(project_root / 'data' / 'transport' / 'calendar_dates.txt'),
+    'stops_path': project_root / 'data' / 'transport' / 'stops.txt',
+    'stop_times_path': project_root / 'data' / 'transport' / 'stop_times.txt',
+    'trips_path': project_root / 'data' / 'transport' / 'trips.txt',
+    'routes_path': project_root / 'data' / 'transport' / 'routes.txt',
+    'shapes_path': project_root / 'data' / 'transport' / 'shapes.txt',
+    'calendar_path': project_root / 'data' / 'transport' / 'calendar.txt',
+    'calendar_dates_path': project_root / 'data' / 'transport' / 'calendar_dates.txt',
 
     # Work location coordinates (office location)
     'office_lat': 52.182348,
