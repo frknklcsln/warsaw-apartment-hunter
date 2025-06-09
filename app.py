@@ -73,7 +73,7 @@ CONFIG = {
     # Search parameters for commute analysis
     'apartment_max_distance': 1000,  # Maximum walking distance from apartment to transit (meters)
     'bus_radius_m': 1000,            # Bus stop search radius from office (meters)
-    'tram_radius_m': 950,            # Tram stop search radius from office (meters)
+    'tram_radius_m': 1000,            # Tram stop search radius from office (meters)
 }
 
 # ==========================================
