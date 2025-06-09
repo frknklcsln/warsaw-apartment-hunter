@@ -509,7 +509,7 @@ class ApartmentAnalyzer:
                     work_serving_routes.add((trip['route_id'], trip['shape_id']))
             for route_id, shape_id in work_serving_routes:
                 route_info = self.routes[self.routes['route_id'] == route_id].iloc[0]
-                color = '#FF6961' if route_info['route_type'] == 0 else 'AEC6CF'
+                color = '#FF6961' if route_info['route_type'] == 0 else '#AEC6CF'
                 shape_coords = self.shape_coordinates.get(shape_id)
                 if shape_coords and len(shape_coords) > 1:
                     folium.PolyLine(locations=shape_coords, color=color, weight=3, opacity=0.6,
