@@ -509,18 +509,11 @@ class ApartmentAnalyzer:
                     work_serving_routes.add((trip['route_id'], trip['shape_id']))
             for route_id, shape_id in work_serving_routes:
                 route_info = self.routes[self.routes['route_id'] == route_id].iloc[0]
-                hex_color = '#FF6961' if route_info['route_type'] == 0 else '#AEC6CF'
+                color = 'lightcoral' if route_info['route_type'] == 0 else 'salmon'
                 shape_coords = self.shape_coordinates.get(shape_id)
                 if shape_coords and len(shape_coords) > 1:
-                    # Create colors array for ColorLine (all same color)
-                    colors = [hex_color] * (len(shape_coords) - 1)
-                    folium.ColorLine(
-                        positions=shape_coords,
-                        colors=colors,
-                        weight=3,
-                        opacity=0.6,
-                        popup=f"Route {route_info['route_short_name']}"
-                    ).add_to(m)
+                    folium.PolyLine(locations=shape_coords, color=color, weight=3, opacity=0.6,
+                                    popup=f"Route {route_info['route_short_name']}").add_to(m)
 
     def _add_relevant_stops_to_map(self, m, apartment_routes):
         with Timer("Adding Relevant Stops"):
