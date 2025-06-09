@@ -1191,14 +1191,14 @@ if st.session_state.filter_applied and not st.session_state.filtered_df.empty:
         # Filter summary with information about optimized data
         start_date, end_date = filters['date_range']
         st.markdown(f"""
-        <div class="info-box">
-            <strong>📅 Active Filters:</strong> 
-            Rooms: {filters['selected_rooms']} | 
-            Max Price: {filters['max_price']:,} PLN | 
-            Max Travel: {filters['max_travel_time']} min | 
-            Date Range: {start_date} to {end_date}
-        </div>
-        """, unsafe_allow_html=True)
+                <div class="info-box">
+                    <strong>📅 Active Filters:</strong> 
+                    Rooms: {[int(room) for room in filters['selected_rooms']]} | 
+                    Max Price: {filters['max_price']:,} PLN | 
+                    Max Travel: {filters['max_travel_time']} min | 
+                    Date Range: {start_date} to {end_date}
+                </div>
+                """, unsafe_allow_html=True)
 
         # Modern tabs for different views
         tab1, tab2, tab3 = st.tabs(["🗺️ Map View", "📋 List View", "📊 Analytics"])
