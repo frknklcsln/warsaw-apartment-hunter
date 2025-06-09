@@ -1216,7 +1216,7 @@ if st.session_state.filter_applied and not st.session_state.filtered_df.empty:
                     lat, lon = temp_loc['coordinates']
 
                     if temp_loc['feasible']:
-                        color = 'blue'
+                        color = '#AEC6CF'
                         icon = 'check'
                         popup_text = f"✅ FEASIBLE<br>{temp_loc['address']}<br>🕐 {temp_loc['travel_time']:.1f} min to work"
                     else:
