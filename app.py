@@ -35,38 +35,31 @@ import sys
 import plotly.express as px
 import plotly.graph_objects as go
 
+# ===== THEME TOGGLE  =====
+# Theme toggle setup
+if 'theme_mode' not in st.session_state:
+    st.session_state.theme_mode = 'light'
 
-# Theme management
-def setup_theme_toggle():
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("### 🎨 Display Settings")
+# Display Settings section
+st.sidebar.markdown("### 🎨 Display Settings")
 
-    # Initialize theme
-    if 'theme_mode' not in st.session_state:
-        st.session_state.theme_mode = 'light'
+# Toggle button for theme switching
+dark_mode = st.sidebar.toggle(
+    "Dark Mode 🌙",
+    value=(st.session_state.theme_mode == 'dark'),
+    help="Switch between light and dark theme"
+)
 
-    # Theme selector
-    theme_options = {
-        "Light Mode ☀️": "light",
-        "Dark Mode 🌙": "dark"
-    }
+# Apply theme changes
+if dark_mode and st.session_state.theme_mode == 'light':
+    st.session_state.theme_mode = 'dark'
+    st.rerun()
+elif not dark_mode and st.session_state.theme_mode == 'dark':
+    st.session_state.theme_mode = 'light'
+    st.rerun()
 
-    selected_theme = st.sidebar.selectbox(
-        "Choose Theme:",
-        options=list(theme_options.keys()),
-        index=0 if st.session_state.theme_mode == 'light' else 1
-    )
-
-    # Update theme if changed
-    new_theme = theme_options[selected_theme]
-    if new_theme != st.session_state.theme_mode:
-        st.session_state.theme_mode = new_theme
-        st.rerun()
-
-
-# Call this function early in your app
-setup_theme_toggle()
-
+st.sidebar.markdown("---")  # Add separator
+# ===== END THEME TOGGLE =====
 # ==========================================
 # PAGE CONFIGURATION
 # ==========================================
