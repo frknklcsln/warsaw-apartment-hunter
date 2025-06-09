@@ -1432,22 +1432,6 @@ else:
 with st.sidebar:
 
     st.markdown("---")
-    st.markdown("### ⚙️ System Info")
-    st.markdown("**🏢 Work Location:** Configured")
-
-    # Show cache status
-    cache_dir = Path("cache")
-    if cache_dir.exists():
-        cache_files = list(cache_dir.glob("*.pkl"))
-        if cache_files:
-            total_cache_size = sum(f.stat().st_size for f in cache_files) / (1024 * 1024)  # MB
-            st.markdown(f"**💾 Cache:** {len(cache_files)} files ({total_cache_size:.1f} MB)")
-        else:
-            st.markdown("**💾 Cache:** Empty")
-    else:
-        st.markdown("**💾 Cache:** Not created")
-
-    st.markdown("---")
     st.markdown("*Warsaw Apartment Hunter v1.0*")
 
 
