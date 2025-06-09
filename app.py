@@ -35,6 +35,38 @@ import sys
 import plotly.express as px
 import plotly.graph_objects as go
 
+
+# Theme management
+def setup_theme_toggle():
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 🎨 Display Settings")
+
+    # Initialize theme
+    if 'theme_mode' not in st.session_state:
+        st.session_state.theme_mode = 'light'
+
+    # Theme selector
+    theme_options = {
+        "Light Mode ☀️": "light",
+        "Dark Mode 🌙": "dark"
+    }
+
+    selected_theme = st.sidebar.selectbox(
+        "Choose Theme:",
+        options=list(theme_options.keys()),
+        index=0 if st.session_state.theme_mode == 'light' else 1
+    )
+
+    # Update theme if changed
+    new_theme = theme_options[selected_theme]
+    if new_theme != st.session_state.theme_mode:
+        st.session_state.theme_mode = new_theme
+        st.rerun()
+
+
+# Call this function early in your app
+setup_theme_toggle()
+
 # ==========================================
 # PAGE CONFIGURATION
 # ==========================================
