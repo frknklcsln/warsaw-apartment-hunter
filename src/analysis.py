@@ -164,8 +164,8 @@ class ApartmentAnalyzer:
             # Calculate days since created for display
             apartments_to_display, _ = self.calculate_days_since_created(apartments_to_display)
 
-            m = folium.Map(location=[self.config['office_lat'], self.config['office_lon']], zoom_start=12,
-                           tiles='OpenStreetMap')
+            m = folium.Map(location=[self.config['office_lat'], self.config['office_lon']], zoom_start=13,
+                           tiles='CartoDB dark_matter')
             self._add_complete_route_shapes_to_map(m)
             self._add_relevant_stops_to_map(m, apartment_routes)
             folium.Marker([self.config['office_lat'], self.config['office_lon']], popup="Work Office",
