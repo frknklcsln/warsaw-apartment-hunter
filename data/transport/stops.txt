@@ -1,0 +1,672 @@
+stop_id,stop_name,stop_code,platform_code,stop_lat,stop_lon,location_type,parent_station,wheelchair_boarding,stop_name_stem,town_name,street_name
+200808,Wiatraczna,08,,52.245865,21.084594,0,,1,Wiatraczna,Warszawa,Zakole
+200809,Wiatraczna,09,,52.243436,21.084143,0,,1,Wiatraczna,Warszawa,al. Stanów Zjednoczonych
+200810,Wiatraczna,10,,52.243302,21.084587,0,,1,Wiatraczna,Warszawa,al. Stanów Zjednoczonych
+200822,Wiatraczna,22,,52.244983,21.087144,0,,1,Wiatraczna,Warszawa,Grochowska
+201001,Wspólna Droga,01,,52.244099,21.094242,0,,1,Wspólna Droga,Warszawa,Grochowska
+201002,Wspólna Droga,02,,52.243502,21.096057,0,,1,Wspólna Droga,Warszawa,Grochowska
+201101,Pl. Szembeka,01,,52.24262,21.101188,0,,1,Pl. Szembeka,Warszawa,Grochowska
+201102,Pl. Szembeka,02,,52.242532,21.100668,0,,1,Pl. Szembeka,Warszawa,Grochowska
+205803,PKP Gocławek,03,,52.240177,21.128744,0,,1,PKP Gocławek,Warszawa,Makowska
+205804,PKP Gocławek,04,,52.240211,21.128105,0,,1,PKP Gocławek,Warszawa,Makowska
+209601,Wał Miedzeszyński,01,,52.226494,21.054205,0,,2,Wał Miedzeszyński,Warszawa,most Łazienkowski
+209602,Wał Miedzeszyński,02,,52.226379,21.05469,0,,2,Wał Miedzeszyński,Warszawa,most Łazienkowski
+209701,Saska,01,,52.22842051,21.06184332,0,,1,Saska,Warszawa,al. Stanów Zjednoczonych
+209702,Saska,02,,52.228669,21.063733,0,,1,Saska,Warszawa,al. Stanów Zjednoczonych
+209801,Międzynarodowa,01,,52.22991126,21.06727527,0,,1,Międzynarodowa,Warszawa,al. Stanów Zjednoczonych
+209802,Międzynarodowa,02,,52.22997,21.068713,0,,1,Międzynarodowa,Warszawa,al. Stanów Zjednoczonych
+210001,Przyczółek Grochowski,01,,52.235666,21.078456,0,,1,Przyczółek Grochowski,Warszawa,al. Stanów Zjednoczonych
+210002,Przyczółek Grochowski,02,,52.235398,21.078739,0,,1,Przyczółek Grochowski,Warszawa,al. Stanów Zjednoczonych
+210501,Witolin,01,,52.236275,21.112945,0,,1,Witolin,Warszawa,Łukowska
+210503,Witolin,03,,52.236611,21.112162,0,,1,Witolin,Warszawa,Łukowska
+210504,Witolin,04,,52.23656,21.112402,0,,1,Witolin,Warszawa,Łukowska
+210601,Tarnowiecka,01,,52.237096,21.104726,0,,1,Tarnowiecka,Warszawa,Łukowska
+210602,Tarnowiecka,02,,52.23672,21.10642,0,,1,Tarnowiecka,Warszawa,Łukowska
+210703,Łukowska,03,,52.238056,21.100865,0,,1,Łukowska,Warszawa,Łukowska
+210704,Łukowska,04,,52.238134,21.100193,0,,1,Łukowska,Warszawa,Łukowska
+210903,Chłopickiego,03,,52.246363,21.10476,0,,1,Chłopickiego,Warszawa,Szaserów
+210904,Chłopickiego,04,,52.246038,21.105717,0,,1,Chłopickiego,Warszawa,Szaserów
+211001,Osiedle Młodych,01,,52.248395,21.097016,0,,1,Osiedle Młodych,Warszawa,Szaserów
+211002,Osiedle Młodych,02,,52.247932,21.098391,0,,1,Osiedle Młodych,Warszawa,Szaserów
+211101,Garwolińska,01,,52.249936,21.091443,0,,1,Garwolińska,Warszawa,Szaserów
+211102,Garwolińska,02,,52.24942,21.09299,0,,1,Garwolińska,Warszawa,Szaserów
+211201,Szaserów-Szpital,01,,52.250229,21.087528,0,,1,Szaserów-Szpital,Warszawa,Szaserów
+211202,Szaserów-Szpital,02,,52.250082,21.089155,0,,1,Szaserów-Szpital,Warszawa,Szaserów
+211301,Dwernickiego,01,,52.248333,21.084233,0,,1,Dwernickiego,Warszawa,Wiatraczna
+211304,Dwernickiego,04,,52.250251,21.085253,0,,1,Dwernickiego,Warszawa,Szaserów
+213001,Os. Majdańska,01,,52.239958,21.081632,0,,1,Os. Majdańska,Warszawa,al. Stanów Zjednoczonych
+213002,Os. Majdańska,02,,52.240902,21.08288,0,,1,Os. Majdańska,Warszawa,al. Stanów Zjednoczonych
+226601,Hetmańska,01,,52.244987,21.110917,0,,1,Hetmańska,Warszawa,Szaserów
+226602,Hetmańska,02,,52.245074,21.109894,0,,1,Hetmańska,Warszawa,Szaserów
+226701,Podolska,01,,52.244348,21.115303,0,,1,Podolska,Warszawa,Szaserów
+226702,Podolska,02,,52.244345,21.114362,0,,1,Podolska,Warszawa,Szaserów
+226801,Szaserów,01,,52.244282,21.11788,0,,1,Szaserów,Warszawa,Szaserów
+226802,Szaserów,02,,52.244188,21.118123,0,,1,Szaserów,Warszawa,Szaserów
+236201,Gdecka,01,,52.2409,21.10116,0,,1,Gdecka,Warszawa,Zamieniecka
+236202,Gdecka,02,,52.241017,21.101323,0,,1,Gdecka,Warszawa,Zamieniecka
+239701,Cukrownicza,01,,52.242618,21.123401,0,,1,Cukrownicza,Warszawa,Makowska
+239702,Cukrownicza,02,,52.24215,21.124182,0,,1,Cukrownicza,Warszawa,Makowska
+300501,Park Dreszera,01,,52.197606,21.023818,0,,1,Park Dreszera,Warszawa,Puławska
+300502,Park Dreszera,02,,52.198088,21.024261,0,,1,Park Dreszera,Warszawa,Puławska
+301105,Al. Lotników,05,,52.173072,21.020948,0,,1,Al. Lotników,Warszawa,Wałbrzyska
+301106,Al. Lotników,06,,52.173551,21.018959,0,,1,Al. Lotników,Warszawa,al. Lotników
+301302,Poleczki,02,,52.15408,21.01796,0,,1,Poleczki,Warszawa,Puławska
+301303,Poleczki,03,,52.15241,21.01924,0,,1,Poleczki,Warszawa,Pileckiego
+301501,Sójki,01,,52.143081,21.017544,0,,1,Sójki,Warszawa,Puławska
+301503,Sójki,03,,52.143455,21.018479,0,,1,Sójki,Warszawa,Płaskowickiej
+301601,Żołny,01,,52.138447,21.017487,0,,1,Żołny,Warszawa,Puławska
+301602,Żołny,02,,52.140452,21.018166,0,,1,Żołny,Warszawa,Puławska
+301701,Bogatki,01,,52.131876,21.017773,0,,1,Bogatki,Warszawa,Puławska
+301702,Bogatki,02,,52.132908,21.018181,0,,1,Bogatki,Warszawa,Puławska
+301801,Łagiewnicka,01,,52.126961,21.017897,0,,1,Łagiewnicka,Warszawa,Puławska
+301802,Łagiewnicka,02,,52.128428,21.018279,0,,1,Łagiewnicka,Warszawa,Puławska
+301901,Pelikanów,01,,52.122514,21.01802,0,,1,Pelikanów,Warszawa,Puławska
+301902,Pelikanów,02,,52.12365,21.018394,0,,1,Pelikanów,Warszawa,Puławska
+302001,Kapeli,01,,52.117087,21.018121,0,,1,Kapeli,Warszawa,Puławska
+302002,Kapeli,02,,52.118243,21.018528,0,,1,Kapeli,Warszawa,Puławska
+302101,Jagielska,01,,52.11508,21.01819,0,,1,Jagielska,Warszawa,Puławska
+302102,Jagielska,02,,52.11533,21.018592,0,,1,Jagielska,Warszawa,Puławska
+302202,Karczunkowska,02,,52.112056,21.018669,0,,1,Karczunkowska,Warszawa,Puławska
+302204,Karczunkowska,04,,52.111182,21.017413,0,,1,Karczunkowska,Warszawa,Karczunkowska
+302401,Trombity,01,,52.110281,21.006081,0,,1,Trombity,Warszawa,Karczunkowska
+302402,Trombity,02,,52.110247,21.005031,0,,2,Trombity,Warszawa,Karczunkowska
+302501,PKP Jeziorki,01,,52.110234,20.993263,0,,1,PKP Jeziorki,Warszawa,Karczunkowska
+302502,PKP Jeziorki,02,,52.110359,20.993159,0,,1,PKP Jeziorki,Warszawa,Karczunkowska
+302703,Dolna,03,,52.20197,21.03739,0,,1,Dolna,Warszawa,Chełmska
+302704,Dolna,04,,52.201691,21.034149,0,,1,Dolna,Warszawa,Dolna
+302901,SGGW-Biblioteka,01,,52.164335,21.04599,0,,1,SGGW-Biblioteka,Warszawa,Nowoursynowska
+302902,SGGW-Biblioteka,02,,52.165455,21.045284,0,,1,SGGW-Biblioteka,Warszawa,Nowoursynowska
+303253,Czarnomorska,53,,52.18472,21.051047,0,,1,Czarnomorska,Warszawa,Czarnomorska
+303303,Św. Bonifacego,03,,52.182234,21.056775,0,,1,Św. Bonifacego,Warszawa,Św. Bonifacego
+303355,Św. Bonifacego,55,,52.18245,21.05684,0,,1,Św. Bonifacego,Warszawa,Św. Bonifacego
+303901,Dolina Służewiecka,01,,52.174554,21.043769,0,,1,Dolina Służewiecka,Warszawa,Dolina Służewiecka
+303902,Dolina Służewiecka,02,,52.175922,21.044629,0,,1,Dolina Służewiecka,Warszawa,al. Sikorskiego
+303903,Dolina Służewiecka,03,,52.174713,21.04557,0,,1,Dolina Służewiecka,Warszawa,al. Wilanowska
+304001,Patkowskiego,01,,52.172249,21.056469,0,,1,Patkowskiego,Warszawa,al. Wilanowska
+304002,Patkowskiego,02,,52.172891,21.054578,0,,1,Patkowskiego,Warszawa,al. Wilanowska
+304101,Os. Arbuzowa,01,,52.171016,21.06195,0,,1,Os. Arbuzowa,Warszawa,al. Wilanowska
+304102,Os. Arbuzowa,02,,52.171573,21.060438,0,,1,Os. Arbuzowa,Warszawa,al. Wilanowska
+304201,Sobieskiego,01,,52.169252,21.069772,0,,1,Sobieskiego,Warszawa,al. Wilanowska
+304202,Sobieskiego,02,,52.170138,21.066516,0,,1,Sobieskiego,Warszawa,al. Wilanowska
+304301,Królowej Marysieńki,01,,52.167715,21.076545,0,,1,Królowej Marysieńki,Warszawa,al. Wilanowska
+304302,Królowej Marysieńki,02,,52.168408,21.074621,0,,1,Królowej Marysieńki,Warszawa,al. Wilanowska
+304402,Wilanów,02,,52.16651,21.08301,0,,1,Wilanów,Warszawa,al. Wilanowska
+304405,Wilanów,05,,52.168049,21.084008,0,,1,Wilanów,Warszawa,Przyczółkowa
+305701,Bartycka,01,,52.21208,21.04697,0,,1,Bartycka,Warszawa,Czerniakowska
+305702,Bartycka,02,,52.21231,21.047312,0,,1,Bartycka,Warszawa,Czerniakowska
+305801,Sielce,01,,52.205835,21.048555,0,,1,Sielce,Warszawa,Czerniakowska
+305802,Sielce,02,,52.20792,21.04854,0,,1,Sielce,Warszawa,Czerniakowska
+305902,Chełmska,02,,52.203749,21.049677,0,,1,Chełmska,Warszawa,Czerniakowska
+305903,Chełmska,03,,52.202292,21.048472,0,,1,Chełmska,Warszawa,Chełmska
+305904,Chełmska,04,,52.202458,21.048404,0,,1,Chełmska,Warszawa,Chełmska
+306401,Goraszewska,01,,52.185968,21.064485,0,,1,Goraszewska,Warszawa,Powsińska
+306404,Goraszewska,04,,52.186141,21.062652,0,,1,Goraszewska,Warszawa,Św. Bonifacego
+306502,Sadyba,02,,52.182764,21.068458,0,,1,Sadyba,Warszawa,Powsińska
+306503,Sadyba,03,,52.181311,21.068822,0,,1,Sadyba,Warszawa,Powsińska
+306507,Sadyba,07,,52.18164,21.069131,0,,1,Sadyba,Warszawa,Powsińska
+308601,Zakrzewska,01,,52.202156,21.042096,0,,1,Zakrzewska,Warszawa,Chełmska
+308602,Zakrzewska,02,,52.202179,21.041217,0,,1,Zakrzewska,Warszawa,Chełmska
+309201,Klarysewska,01,,52.18482,21.06086,0,,1,Klarysewska,Warszawa,Św. Bonifacego
+309202,Klarysewska,02,,52.18462,21.060277,0,,1,Klarysewska,Warszawa,Św. Bonifacego
+309352,Batumi,52,,52.179881,21.05292,0,,1,Batumi,Warszawa,Św. Bonifacego
+309402,Stegny,02,,52.177522,21.046406,0,,1,Stegny,Warszawa,Św. Bonifacego
+309554,Warneńska,54,,52.182989,21.046853,0,,1,Warneńska,Warszawa,Czarnomorska
+309601,Wróbla,01,,52.173408,21.02958,0,,1,Wróbla,Warszawa,Wałbrzyska
+309602,Wróbla,02,,52.173513,21.030723,0,,1,Wróbla,Warszawa,Wałbrzyska
+309701,Noskowskiego,01,,52.172518,21.039034,0,,1,Noskowskiego,Warszawa,Nowoursynowska
+309702,Noskowskiego,02,,52.172782,21.038712,0,,1,Noskowskiego,Warszawa,Nowoursynowska
+309802,Nowoursynowska,02,,52.17099,21.04186,0,,1,Nowoursynowska,Warszawa,Dolina Służewiecka
+309803,Nowoursynowska,03,,52.169381,21.041217,0,,1,Nowoursynowska,Warszawa,Dolina Służewiecka
+309805,Nowoursynowska,05,,52.171312,21.040335,0,,1,Nowoursynowska,Warszawa,Nowoursynowska
+310001,SGGW-Rektorat,01,,52.162465,21.047818,0,,1,SGGW-Rektorat,Warszawa,Nowoursynowska
+310002,SGGW-Rektorat,02,,52.163767,21.046872,0,,1,SGGW-Rektorat,Warszawa,Nowoursynowska
+310801,Krasickiego,01,,52.196755,21.020043,0,,1,Krasickiego,Warszawa,Odyńca
+310802,Krasickiego,02,,52.196599,21.018188,0,,1,Krasickiego,Warszawa,Odyńca
+311701,Konduktorska,01,,52.200955,21.031341,0,,1,Konduktorska,Warszawa,Dolna
+311702,Konduktorska,02,,52.20069,21.029763,0,,1,Konduktorska,Warszawa,Dolna
+312005,Ursynów Płn.,05,,52.162031,21.036944,0,,1,Ursynów Płn.,Warszawa,al. Rodowicza „Anody”
+312007,Ursynów Płn.,07,,52.16226,21.034201,0,,1,Ursynów Płn.,Warszawa,Beli Bartóka
+312008,Ursynów Płn.,08,,52.162165,21.033854,0,,1,Ursynów Płn.,Warszawa,Beli Bartóka
+312103,Strzeleckiego,03,,52.157185,21.046209,0,,1,Strzeleckiego,Warszawa,Ciszewskiego
+312104,Strzeleckiego,04,,52.15606,21.0428,0,,1,Strzeleckiego,Warszawa,Ciszewskiego
+312601,Tagore'a,01,,52.195326,21.00822,0,,1,Tagore'a,Warszawa,Odyńca
+312602,Tagore'a,02,,52.195369,21.007382,0,,1,Tagore'a,Warszawa,Odyńca
+312701,Metro Ursynów,01,,52.161608,21.027441,0,,1,Metro Ursynów,Warszawa,al. KEN
+312704,Metro Ursynów,04,,52.161971,21.029379,0,,1,Metro Ursynów,Warszawa,Beli Bartóka
+313101,Dunikowskiego,01,,52.15435,21.0319,0,,1,Dunikowskiego,Warszawa,Herbsta
+313102,Dunikowskiego,02,,52.153135,21.029745,0,,1,Dunikowskiego,Warszawa,Herbsta
+313202,Metro Stokłosy,02,,52.15571,21.033754,0,,1,Metro Stokłosy,Warszawa,Herbsta
+313204,Metro Stokłosy,04,,52.156841,21.033602,0,,1,Metro Stokłosy,Warszawa,al. KEN
+313303,Herbsta,03,,52.15182,21.02793,0,,1,Herbsta,Warszawa,Herbsta
+313401,Centrum Onkologii,01,,52.150099,21.033733,0,,1,Centrum Onkologii,Warszawa,Ciszewskiego
+313402,Centrum Onkologii,02,,52.148979,21.031729,0,,1,Centrum Onkologii,Warszawa,Roentgena
+313404,Centrum Onkologii,04,,52.14998,21.031813,0,,1,Centrum Onkologii,Warszawa,Pileckiego
+313601,Ursynów Płd.,01,,52.15392,21.03933,0,,1,Ursynów Płd.,Warszawa,Ciszewskiego
+313604,Ursynów Płd.,04,,52.154309,21.037853,0,,1,Ursynów Płd.,Warszawa,al. KEN
+313605,Ursynów Płd.,05,,52.154146,21.037095,0,,1,Ursynów Płd.,Warszawa,al. KEN
+313901,Miklaszewskiego,01,,52.14722,21.0428,0,,1,Miklaszewskiego,Warszawa,Dereniowa
+313902,Miklaszewskiego,02,,52.148278,21.041692,0,,1,Miklaszewskiego,Warszawa,Dereniowa
+314001,Stryjeńskich,01,,52.14162,21.04546,0,,1,Stryjeńskich,Warszawa,Stryjeńskich
+314002,Stryjeńskich,02,,52.143026,21.044415,0,,1,Stryjeńskich,Warszawa,Dereniowa
+315101,Ciszewskiego,01,,52.158962,21.050545,0,,1,Ciszewskiego,Warszawa,Ciszewskiego
+315104,Ciszewskiego,04,,52.159822,21.050869,0,,1,Ciszewskiego,Warszawa,Nowoursynowska
+316501,Piaseczno Kusocińskiego,01,,52.079869,21.021417,0,,1,Kusocińskiego,Piaseczno,Wojska Polskiego
+316502,Piaseczno Kusocińskiego,02,,52.079786,21.02159,0,,1,Kusocińskiego,Piaseczno,Wojska Polskiego
+319502,Os. Wyżyny,02,,52.137975,21.04909,0,,1,Os. Wyżyny,Warszawa,Stryjeńskich
+319504,Os. Wyżyny,04,,52.137,21.049703,0,,1,Os. Wyżyny,Warszawa,Stryjeńskich
+320301,Małej Łąki,01,,52.134517,21.05297,0,,1,Małej Łąki,Warszawa,Stryjeńskich
+320304,Małej Łąki,04,,52.133504,21.054056,0,,1,Małej Łąki,Warszawa,Stryjeńskich
+323103,Odyńca,03,,52.196127,21.01472,0,,1,Odyńca,Warszawa,Odyńca
+323104,Odyńca,04,,52.195912,21.012519,0,,1,Odyńca,Warszawa,Odyńca
+323905,Wołoska,05,,52.19522,21.003876,0,,1,Wołoska,Warszawa,Odyńca
+323906,Wołoska,06,,52.195816,21.000879,0,,1,Wołoska,Warszawa,Racławicka
+324301,Rondo Unii Europejskiej,01,,52.177868,21.00385,0,,1,Rondo Unii Europejskiej,Warszawa,al. Wilanowska
+324302,Rondo Unii Europejskiej,02,,52.178515,21.000836,0,,1,Rondo Unii Europejskiej,Warszawa,Marynarska
+324305,Rondo Unii Europejskiej,05,,52.176779,21.002181,0,,1,Rondo Unii Europejskiej,Warszawa,Rzymowskiego
+324402,Cybernetyki,02,,52.176265,21.002715,0,,1,Cybernetyki,Warszawa,Rzymowskiego
+324404,Cybernetyki,04,,52.175255,20.999994,0,,1,Cybernetyki,Warszawa,Cybernetyki
+324501,Gotarda,01,,52.171229,21.005798,0,,1,Gotarda,Warszawa,Rzymowskiego
+324502,Gotarda,02,,52.172208,21.004566,0,,1,Gotarda,Warszawa,Rzymowskiego
+324801,Bełdan,01,,52.174184,21.01358,0,,1,Bełdan,Warszawa,al. Lotników
+324802,Bełdan,02,,52.174547,21.011326,0,,1,Bełdan,Warszawa,al. Lotników
+324901,Instytut Fizyki,01,,52.177441,21.007249,0,,1,Instytut Fizyki,Warszawa,al. Lotników
+324902,Instytut Fizyki,02,,52.178057,21.006215,0,,1,Instytut Fizyki,Warszawa,al. Wilanowska
+325001,Postępu,01,,52.178861,20.998383,0,,1,Postępu,Warszawa,Marynarska
+325002,Postępu,02,,52.179713,20.995463,0,,1,Postępu,Warszawa,Marynarska
+325103,Wynalazek,03,,52.179458,20.995531,0,,1,Wynalazek,Warszawa,Marynarska
+325401,PKP Służewiec,01,,52.181179,20.986991,0,,1,PKP Służewiec,Warszawa,Sasanki
+325402,PKP Służewiec,02,,52.181703,20.9869,0,,1,PKP Służewiec,Warszawa,Marynarska
+325501,Miłobędzka,01,,52.196523,20.993544,0,,1,Miłobędzka,Warszawa,Racławicka
+325502,Miłobędzka,02,,52.197028,20.992109,0,,1,Miłobędzka,Warszawa,Racławicka
+326303,Rondo Żabczyńskiego,03,,52.175719,20.996705,0,,1,Rondo Żabczyńskiego,Warszawa,Cybernetyki
+326304,Rondo Żabczyńskiego,04,,52.176392,20.99446,0,,1,Rondo Żabczyńskiego,Warszawa,Cybernetyki
+327901,Metro Służew,01,,52.173342,21.026892,0,,1,Metro Służew,Warszawa,Wałbrzyska
+327902,Metro Służew,02,,52.173473,21.02536,0,,1,Metro Służew,Warszawa,Wałbrzyska
+327903,Metro Służew,03,,52.172917,21.026128,0,,1,Metro Służew,Warszawa,al. Harcerzy Rzeczypospolitej
+327904,Metro Służew,04,,52.17387,21.026334,0,,1,Metro Służew,Warszawa,Rolna
+328202,Metro Kabaty,02,,52.130762,21.066167,0,,1,Metro Kabaty,Warszawa,al. KEN
+328204,Metro Kabaty,04,,52.131281,21.06491,0,,1,Metro Kabaty,Warszawa,Wąwozowa
+328301,Mielczarskiego,01,,52.131232,21.05936,0,,1,Mielczarskiego,Warszawa,Wąwozowa
+328302,Mielczarskiego,02,,52.131146,21.061376,0,,1,Mielczarskiego,Warszawa,Wąwozowa
+328401,Rybałtów,01,,52.131677,21.055935,0,,1,Rybałtów,Warszawa,Stryjeńskich
+328402,Rybałtów,02,,52.131177,21.056685,0,,1,Rybałtów,Warszawa,Wąwozowa
+329101,Makolągwy,01,,52.145318,21.026627,0,,1,Makolągwy,Warszawa,Roentgena
+329102,Makolągwy,02,,52.145314,21.026396,0,,1,Makolągwy,Warszawa,Roentgena
+329202,CH Ursynów,02,,52.142864,21.023599,0,,1,CH  Ursynów,Warszawa,Płaskowickiej
+329203,CH Ursynów,03,,52.143717,21.025057,0,,1,CH  Ursynów,Warszawa,Roentgena
+329301,Wiolinowa,01,,52.158374,21.030624,0,,1,Wiolinowa,Warszawa,al. KEN
+329302,Wiolinowa,02,,52.159024,21.030007,0,,1,Wiolinowa,Warszawa,al. KEN
+330101,Malinowskiego,01,,52.149862,21.038194,0,,1,Malinowskiego,Warszawa,Dereniowa
+330102,Malinowskiego,02,,52.150181,21.037497,0,,1,Malinowskiego,Warszawa,Dereniowa
+330901,Karczocha,01,,52.173729,21.049878,0,,1,Karczocha,Warszawa,al. Wilanowska
+330902,Karczocha,02,,52.174316,21.048274,0,,1,Karczocha,Warszawa,al. Wilanowska
+332001,Piaseczno Wojska Polskiego,01,,52.075002,21.021853,0,,1,Wojska Polskiego,Piaseczno,Jana Pawła II
+332202,Piaseczno Powstańców Warszawy,02,,52.074549,21.017688,0,,1,Powstańców Warszawy,Piaseczno,Jana Pawła II
+332601,Do Fortu,01,,52.19732,20.989388,0,,1,Do Fortu,Warszawa,Racławicka
+332602,Do Fortu,02,,52.197927,20.987264,0,,1,Do Fortu,Warszawa,Racławicka
+333701,Wałbrzyska-Cmentarz,01,,52.173472,21.035863,0,,1,Wałbrzyska-Cmentarz,Warszawa,Wałbrzyska
+338301,Komputerowa,01,,52.176507,20.993018,0,,1,Komputerowa,Warszawa,Cybernetyki
+338302,Komputerowa,02,,52.177045,20.99146,0,,1,Komputerowa,Warszawa,Cybernetyki
+340004,Os. Kabaty,04,,52.129226,21.06825,0,,1,Os. Kabaty,Warszawa,al. KEN
+340301,Warchałowskiego,01,,52.144223,21.043705,0,,1,Warchałowskiego,Warszawa,Dereniowa
+340302,Warchałowskiego,02,,52.145531,21.043507,0,,1,Warchałowskiego,Warszawa,Dereniowa
+342001,Łukaszczyka,01,,52.147219,21.029412,0,,1,Łukaszczyka,Warszawa,Roentgena
+342002,Łukaszczyka,02,,52.146785,21.028557,0,,1,Łukaszczyka,Warszawa,Roentgena
+342401,Pozytywki,01,,52.110492,21.012539,0,,1,Pozytywki,Warszawa,Karczunkowska
+342402,Pozytywki,02,,52.11045,21.011119,0,,1,Pozytywki,Warszawa,Karczunkowska
+343002,Piaseczno Fabryczna,02,,52.0757,21.022339,0,,1,Fabryczna,Piaseczno,Wojska Polskiego
+346401,Piaseczno Targowisko,01,,52.074249,21.011946,0,,1,Targowisko,Piaseczno,Jana Pawła II
+346402,Piaseczno Targowisko,02,,52.074054,21.011582,0,,1,Targowisko,Piaseczno,Jana Pawła II
+346501,Nawłocka,01,,52.109903,20.999842,0,,1,Nawłocka,Warszawa,Karczunkowska
+346502,Nawłocka,02,,52.109886,20.99907,0,,1,Nawłocka,Warszawa,Karczunkowska
+347002,Bergamotki,02,,52.177868,21.044862,0,,1,Bergamotki,Warszawa,al. Sikorskiego
+400103,Pl. Zawiszy,03,,52.225006,20.990644,0,,1,Pl. Zawiszy,Warszawa,Al. Jerozolimskie
+400115,Pl. Zawiszy,15,,52.224067,20.989348,0,,1,Pl. Zawiszy,Warszawa,Raszyńska
+400352,Pl. Narutowicza,52,,52.218554,20.98289,0,,1,Pl. Narutowicza,Warszawa,pl. Narutowicza
+400355,Pl. Narutowicza,55,,52.21885,20.984885,0,,1,Pl. Narutowicza,Warszawa,pl. Narutowicza
+400401,Och-Teatr,01,,52.214723,20.97996,0,,1,Och-Teatr,Warszawa,Grójecka
+400402,Och-Teatr,02,,52.215146,20.979874,0,,1,Och-Teatr,Warszawa,Grójecka
+400501,Bitwy Warszawskiej 1920 r.,01,,52.211521,20.977267,0,,1,Bitwy Warszawskiej 1920 r.,Warszawa,Grójecka
+400552,Bitwy Warszawskiej 1920 r.,52,,52.210484,20.976186,0,,1,Bitwy Warszawskiej 1920 r.,Warszawa,Grójecka
+400601,Dickensa,01,,52.205955,20.972424,0,,1,Dickensa,Warszawa,Grójecka
+400602,Dickensa,02,,52.205434,20.971374,0,,1,Dickensa,Warszawa,Grójecka
+400605,Dickensa,05,,52.206074,20.971125,0,,1,Dickensa,Warszawa,Dickensa
+400656,Dickensa,56,,52.206434,20.969912,0,,1,Dickensa,Warszawa,Dickensa
+400701,Korotyńskiego,01,,52.202141,20.969024,0,,1,Korotyńskiego,Warszawa,Grójecka
+400702,Korotyńskiego,02,,52.203134,20.969346,0,,1,Korotyńskiego,Warszawa,Grójecka
+400805,PKP Rakowiec,05,,52.197154,20.963032,0,,1,PKP Rakowiec,Warszawa,Instalatorów
+400806,PKP Rakowiec,06,,52.197225,20.963027,0,,1,PKP Rakowiec,Warszawa,Instalatorów
+400851,PKP Rakowiec,51,,52.197428,20.96491,0,,1,PKP Rakowiec,Warszawa,Grójecka
+400852,PKP Rakowiec,52,,52.196704,20.963697,0,,1,PKP Rakowiec,Warszawa,al. Krakowska
+400901,1 Sierpnia,01,,52.195882,20.963512,0,,1,1 Sierpnia,Warszawa,al. Krakowska
+400902,1 Sierpnia,02,,52.195189,20.962307,0,,1,1 Sierpnia,Warszawa,al. Krakowska
+400903,1 Sierpnia,03,,52.19503,20.965272,0,,1,1 Sierpnia,Warszawa,1 Sierpnia
+401001,Włochy-Ratusz,01,,52.193603,20.961425,0,,1,Włochy-Ratusz,Warszawa,al. Krakowska
+401002,Włochy-Ratusz,02,,52.192628,20.960045,0,,1,Włochy-Ratusz,Warszawa,al. Krakowska
+401101,Hynka,01,,52.190665,20.958908,0,,1,Hynka,Warszawa,al. Krakowska
+401102,Hynka,02,,52.189708,20.957438,0,,1,Hynka,Warszawa,al. Krakowska
+401105,Hynka,05,,52.189736,20.958956,0,,1,Hynka,Warszawa,Hynka
+401106,Hynka,06,,52.190608,20.957315,0,,1,Hynka,Warszawa,Łopuszańska
+401201,Krakowiaków,01,,52.184943,20.953668,0,,1,Krakowiaków,Warszawa,al. Krakowska
+401202,Krakowiaków,02,,52.185296,20.953468,0,,1,Krakowiaków,Warszawa,al. Krakowska
+401205,Krakowiaków,05,,52.185585,20.95501,0,,1,Krakowiaków,Warszawa,Komitetu Obrony Robotników
+401352,Lipowczana,52,,52.183162,20.951226,0,,1,Lipowczana,Warszawa,al. Krakowska
+401401,Instytut Lotnictwa,01,,52.178724,20.94693,0,,1,Instytut Lotnictwa,Warszawa,al. Krakowska
+401402,Instytut Lotnictwa,02,,52.180173,20.947972,0,,1,Instytut Lotnictwa,Warszawa,al. Krakowska
+401506,P+R Al. Krakowska,06,,52.176153,20.943585,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401507,P+R Al. Krakowska,07,,52.175476,20.944139,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401509,P+R Al. Krakowska,09,,52.175405,20.944066,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401510,P+R Al. Krakowska,10,,52.17554,20.943725,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401518,P+R Al. Krakowska,18,,52.175438,20.943098,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401551,P+R Al. Krakowska,51,,52.176255,20.944844,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401554,P+R Al. Krakowska,54,,52.175221,20.943875,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401555,P+R Al. Krakowska,55,,52.175148,20.943802,0,,1,P+R Al. Krakowska,Warszawa,al. Krakowska
+401601,Szyszkowa,01,,52.171967,20.939599,0,,1,Szyszkowa,Warszawa,al. Krakowska
+401602,Szyszkowa,02,,52.170818,20.93782,0,,1,Szyszkowa,Warszawa,al. Krakowska
+401801,Stoicka,01,,52.167477,20.934961,0,,1,Stoicka,Warszawa,al. Krakowska
+401802,Stoicka,02,,52.165972,20.932677,0,,1,Stoicka,Warszawa,al. Krakowska
+401804,Stoicka,04,,52.167339,20.932986,0,,1,Stoicka,Warszawa,al. Polskiej Organizacji Wojskowej
+401901,Na Skraju,01,,52.16377,20.93074,0,,1,Na Skraju,Warszawa,al. Krakowska
+401902,Na Skraju,02,,52.163899,20.930496,0,,1,Na Skraju,Warszawa,al. Krakowska
+401904,Na Skraju,04,,52.163007,20.930832,0,,1,Na Skraju,Warszawa,Na Skraju
+402001,Olszowa,01,,52.16057,20.93678,0,,1,Olszowa,Warszawa,Na Skraju
+402002,Olszowa,02,,52.16066,20.936505,0,,1,Olszowa,Warszawa,Na Skraju
+402101,Rybna,01,,52.159036,20.941687,0,,1,Rybna,Warszawa,Na Skraju
+402102,Rybna,02,,52.158993,20.941693,0,,1,Rybna,Warszawa,Na Skraju
+402201,Przelotowa,01,,52.156691,20.95058,0,,1,Przelotowa,Warszawa,Na Skraju
+402202,Przelotowa,02,,52.156696,20.950388,0,,1,Przelotowa,Warszawa,Na Skraju
+402301,Ogrody Działkowe Na Skraju,01,,52.156302,20.959604,0,,1,Ogrody Działkowe Na Skraju,Warszawa,Paluch
+402302,Ogrody Działkowe Na Skraju,02,,52.156223,20.959803,0,,1,Ogrody Działkowe Na Skraju,Warszawa,Paluch
+402401,Schronisko Dla Zwierząt,01,,52.155913,20.963209,0,,1,Schronisko Dla Zwierząt,Warszawa,Paluch
+402402,Schronisko Dla Zwierząt,02,,52.155921,20.962808,0,,1,Schronisko Dla Zwierząt,Warszawa,Paluch
+402501,Ogrody Działkowe Paluch,01,,52.153418,20.965291,0,,1,Ogrody Działkowe Paluch,Warszawa,Ogrodników
+402502,Ogrody Działkowe Paluch,02,,52.15295,20.965096,0,,2,Ogrody Działkowe Paluch,Warszawa,Ogrodników
+402601,Paluch,01,,52.151714,20.965035,0,,1,Paluch,Warszawa,Ogrodników
+402801,Raszyńska,01,,52.219861,20.989364,0,,1,Raszyńska,Warszawa,Raszyńska
+402802,Raszyńska,02,,52.219806,20.989858,0,,1,Raszyńska,Warszawa,Raszyńska
+402901,Pomnik Lotnika,01,,52.215562,20.988137,0,,1,Pomnik Lotnika,Warszawa,Żwirki i Wigury
+402902,Pomnik Lotnika,02,,52.216947,20.99031,0,,1,Pomnik Lotnika,Warszawa,Krzyckiego
+402903,Pomnik Lotnika,03,,52.21627,20.99134,0,,1,Pomnik Lotnika,Warszawa,Wawelska
+403001,Banacha-Szpital,01,,52.209624,20.987418,0,,1,Banacha-Szpital,Warszawa,Żwirki i Wigury
+403002,Banacha-Szpital,02,,52.210978,20.988402,0,,1,Banacha-Szpital,Warszawa,Żwirki i Wigury
+403101,Uniwersytet Medyczny,01,,52.204773,20.985773,0,,1,Uniwersytet Medyczny,Warszawa,Żwirki i Wigury
+403102,Uniwersytet Medyczny,02,,52.20478,20.98633,0,,1,Uniwersytet Medyczny,Warszawa,Żwirki i Wigury
+403201,Pruszkowska,01,,52.200788,20.984391,0,,1,Pruszkowska,Warszawa,Żwirki i Wigury
+403202,Pruszkowska,02,,52.201602,20.985227,0,,1,Pruszkowska,Warszawa,Żwirki i Wigury
+403301,Rakowiec,01,,52.197917,20.983413,0,,1,Rakowiec,Warszawa,Żwirki i Wigury
+403302,Rakowiec,02,,52.198991,20.984341,0,,1,Rakowiec,Warszawa,Żwirki i Wigury
+403303,Rakowiec,03,,52.198198,20.984813,0,,1,Rakowiec,Warszawa,Racławicka
+403401,Baleya,01,,52.195621,20.98267,0,,1,Baleya,Warszawa,Żwirki i Wigury
+403402,Baleya,02,,52.195996,20.983278,0,,1,Baleya,Warszawa,Żwirki i Wigury
+403501,Novotel,01,,52.190711,20.98099,0,,1,Novotel,Warszawa,Żwirki i Wigury
+403502,Novotel,02,,52.190923,20.981564,0,,1,Novotel,Warszawa,Żwirki i Wigury
+403504,Novotel,04,,52.192093,20.978473,0,,1,Novotel,Warszawa,1 Sierpnia
+403601,Leżajska,01,,52.188542,20.980224,0,,1,Leżajska,Warszawa,Żwirki i Wigury
+403602,Leżajska,02,,52.188852,20.980859,0,,1,Leżajska,Warszawa,Żwirki i Wigury
+403701,Sasanki,01,,52.182674,20.978309,0,,1,Sasanki,Warszawa,Żwirki i Wigury
+403702,Sasanki,02,,52.184076,20.979223,0,,1,Sasanki,Warszawa,Żwirki i Wigury
+403703,Sasanki,03,,52.182977,20.979998,0,,1,Sasanki,Warszawa,Sasanki
+403704,Sasanki,04,,52.184058,20.977725,0,,1,Sasanki,Warszawa,Hynka
+403801,Komitetu Obrony Robotników,01,,52.178995,20.978165,0,,1,Komitetu Obrony Robotników,Warszawa,Żwirki i Wigury
+403802,Komitetu Obrony Robotników,02,,52.180657,20.978217,0,,1,Komitetu Obrony Robotników,Warszawa,Żwirki i Wigury
+403803,Komitetu Obrony Robotników,03,,52.179165,20.979457,0,,1,Komitetu Obrony Robotników,Warszawa,Komitetu Obrony Robotników
+403804,Komitetu Obrony Robotników,04,,52.180481,20.976853,0,,1,Komitetu Obrony Robotników,Warszawa,Komitetu Obrony Robotników
+403901,Ośrodek Wojskowy,01,,52.174773,20.979166,0,,1,Ośrodek Wojskowy,Warszawa,Żwirki i Wigury
+403902,Ośrodek Wojskowy,02,,52.175245,20.979489,0,,1,Ośrodek Wojskowy,Warszawa,Żwirki i Wigury
+404305,Grzymały-Sokołowskiego,05,,52.21813,20.972594,0,,1,Grzymały-Sokołowskiego,Warszawa,Szczęśliwicka
+404306,Grzymały-Sokołowskiego,06,,52.218521,20.972894,0,,1,Grzymały-Sokołowskiego,Warszawa,Szczęśliwicka
+404401,Dw. Zachodni,01,,52.2181422,20.96706957,0,,1,Dw. Zachodni,Warszawa,Al. Jerozolimskie
+404452,Dw. Zachodni,52,,52.218809,20.96795,0,,1,Dw. Zachodni,Warszawa,Al. Jerozolimskie
+404705,PKP WKD Al. Jerozolimskie,05,,52.204291,20.941513,0,,1,PKP WKD Al. Jerozolimskie,Warszawa,Al. Jerozolimskie
+404706,PKP WKD Al. Jerozolimskie,06,,52.204871,20.940826,0,,1,PKP WKD Al. Jerozolimskie,Warszawa,Al. Jerozolimskie
+404801,Popularna,01,,52.201614,20.937159,0,,1,Popularna,Warszawa,Al. Jerozolimskie
+404804,Popularna,04,,52.20167,20.934734,0,,1,Popularna,Warszawa,Popularna
+404903,Łopuszańska,03,,52.195435,20.929711,0,,1,Łopuszańska,Warszawa,Łopuszańska
+404904,Łopuszańska,04,,52.196192,20.926955,0,,1,Łopuszańska,Warszawa,Łopuszańska
+405201,Pl. Starynkiewicza,01,,52.226023,20.994585,0,,1,Pl. Starynkiewicza,Warszawa,Al. Jerozolimskie
+405202,Pl. Starynkiewicza,02,,52.226104,20.99359,0,,1,Pl. Starynkiewicza,Warszawa,Al. Jerozolimskie
+405301,Janki Małe,01,,52.12899,20.88355,0,,1,Janki Małe,Janki,droga lokalna
+405302,Janki Małe,02,,52.129125,20.882176,0,,1,Janki Małe,Janki,droga lokalna
+405501,Wolica,01,,52.119182,20.868611,0,,1,Wolica,Wolica,al. Katowicka
+405502,Wolica,02,,52.11943,20.867844,0,,1,Wolica,Wolica,al. Katowicka
+405601,Wolica Długa,01,,52.113839,20.85659,0,,1,Długa,Wolica,al. Katowicka
+405602,Wolica Długa,02,,52.113756,20.855083,0,,1,Długa,Wolica,al. Katowicka
+405701,Paszków,01,,52.110976,20.833273,0,,1,Paszków,Paszków,Na Skraju
+405702,Paszków,02,,52.109789,20.833911,0,,1,Paszków,Paszków,Na Skraju
+405901,Kajetany,01,,52.092431,20.814249,0,,1,Kajetany,Kajetany,Rolna
+405902,Kajetany,02,,52.092158,20.814263,0,,1,Kajetany,Kajetany,Rolna
+406001,Kajetany Gołębia,01,,52.085612,20.825322,0,,1,Gołębia,Kajetany,Rolna
+406002,Kajetany Gołębia,02,,52.084944,20.826288,0,,1,Gołębia,Kajetany,Rolna
+406101,Kajetany Rolna,01,,52.08166,20.831572,0,,1,Rolna,Kajetany,Rolna
+406102,Kajetany Rolna,02,,52.080948,20.832664,0,,1,Rolna,Kajetany,Rolna
+406201,POD Kajetany,01,,52.077804,20.837356,0,,1,POD Kajetany,Kajetany,Rolna
+406202,POD Kajetany,02,,52.07786,20.837206,0,,1,POD Kajetany,Kajetany,Rolna
+406301,Szamoty,01,,52.067697,20.843775,0,,1,Szamoty,Szamoty,Nadarzyńska
+406401,Janki Pl. Szwedzki,01,,52.132598,20.895185,0,,1,Pl. Szwedzki,Janki,pl. Szwedzki
+406402,Janki Pl. Szwedzki,02,,52.133342,20.891713,0,,1,Pl. Szwedzki,Janki,Mszczonowska
+406403,Janki Pl. Szwedzki,03,,52.134046,20.893993,0,,1,Pl. Szwedzki,Janki,Mszczonowska
+406501,Janki Działkowa,01,,52.129738,20.897165,0,,2,Działkowa,Janki,al. Krakowska
+406502,Janki Działkowa,02,,52.12964,20.8968,0,,1,Działkowa,Janki,al. Krakowska
+406601,Nowy Sękocin,01,,52.124845,20.895238,0,,1,Nowy Sękocin,Sękocin Nowy,al. Krakowska
+406602,Nowy Sękocin,02,,52.123758,20.894467,0,,1,Nowy Sękocin,Sękocin Nowy,al. Krakowska
+406701,Stary Sękocin,01,,52.11108,20.889889,0,,1,Stary Sękocin,Sękocin Stary,al. Krakowska
+406702,Stary Sękocin,02,,52.11134,20.889146,0,,1,Stary Sękocin,Sękocin Stary,al. Krakowska
+406801,Sękocin-Las,01,,52.104335,20.887197,0,,1,Sękocin-Las,Sękocin-Las,al. Krakowska
+406802,Sękocin-Las,02,,52.103173,20.886073,0,,1,Sękocin-Las,Sękocin-Las,al. Krakowska
+406804,Sękocin-Las,04,,52.10118,20.887059,0,,1,Sękocin-Las,Sękocin-Las,Słoneczna
+406806,Sękocin-Las,06,,52.100915,20.885387,0,,1,Sękocin-Las,Sękocin-Las,al. Krakowska
+406901,Łazy Podleśna,01,,52.093301,20.882991,0,,2,Podleśna,Łazy,al. Krakowska
+406902,Łazy Podleśna,02,,52.092307,20.882091,0,,2,Podleśna,Łazy,al. Krakowska
+407001,Łazy,01,,52.082796,20.878708,0,,1,Łazy,Łazy,al. Krakowska
+407002,Łazy,02,,52.080959,20.877609,0,,1,Łazy,Łazy,al. Krakowska
+407101,Radiostacja Łazy,01,,52.075229,20.875716,0,,1,Radiostacja Łazy,Łazy,al. Krakowska
+407102,Radiostacja Łazy,02,,52.0734,20.874636,0,,2,Radiostacja Łazy,Łazy,al. Krakowska
+407201,Marysin,01,,52.067933,20.872853,0,,1,Marysin,Marysin,al. Krakowska
+407202,Marysin,02,,52.066037,20.871777,0,,1,Marysin,Marysin,al. Krakowska
+407301,Wólka Kosowska Wygoda,01,,52.059673,20.86962,0,,2,Wygoda,Wólka Kosowska,al. Krakowska
+407302,Wólka Kosowska Wygoda,02,,52.057556,20.868429,0,,2,Wygoda,Wólka Kosowska,al. Krakowska
+407303,Wólka Kosowska Wygoda,03,,52.057936,20.865531,0,,1,Wygoda,Wólka Kosowska,Nadrzeczna
+407401,Jabłonowo Kolonia Warszawska,01,,52.052752,20.866925,0,,2,Kolonia Warszawska,Jabłonowo,al. Krakowska
+407402,Jabłonowo Kolonia Warszawska,02,,52.051743,20.866178,0,,2,Kolonia Warszawska,Jabłonowo,al. Krakowska
+407501,Mroków Leszczynka,01,,52.047725,20.864959,0,,2,Leszczynka,Mroków,al. Krakowska
+407502,Mroków Leszczynka,02,,52.046135,20.863992,0,,2,Leszczynka,Mroków,al. Krakowska
+407601,Mroków,01,,52.039412,20.861701,0,,1,Mroków,Mroków,al. Krakowska
+407602,Mroków,02,,52.038052,20.862616,0,,2,Mroków,Mroków,Rejonowa
+407701,Szczaki Graniczna,01,,52.02596,20.87655,0,,1,Graniczna,Szczaki,Mrokowska
+407702,Szczaki Graniczna,02,,52.02552,20.87692,0,,1,Graniczna,Szczaki,Mrokowska
+407801,POD Szczaki,01,,52.022233,20.880306,0,,1,POD Szczaki,Szczaki,Mrokowska
+407802,POD Szczaki,02,,52.021651,20.880807,0,,1,POD Szczaki,Szczaki,Mrokowska
+407901,Szczaki,01,,52.011366,20.891043,0,,1,Szczaki,Szczaki,Mrokowska
+407902,Szczaki,02,,52.011523,20.890821,0,,1,Szczaki,Szczaki,Mrokowska
+408002,Złotokłos,02,,52.007763,20.896043,0,,1,Złotokłos,Złotokłos,Mrokowska
+408301,Kajetany Modra,01,,52.089017,20.819945,0,,1,Modra,Kajetany,Rolna
+408302,Kajetany Modra,02,,52.088569,20.820581,0,,1,Modra,Kajetany,Rolna
+408401,Astronautów,01,,52.184561,20.97497,0,,1,Astronautów,Warszawa,Hynka
+408501,Radarowa,01,,52.188116,20.964077,0,,1,Radarowa,Warszawa,Hynka
+408502,Radarowa,02,,52.188762,20.962959,0,,1,Radarowa,Warszawa,Hynka
+408701,Orzechowa,01,,52.191881,20.949257,0,,1,Orzechowa,Warszawa,Łopuszańska
+408702,Orzechowa,02,,52.192147,20.949007,0,,1,Orzechowa,Warszawa,Łopuszańska
+408801,Przedpole,01,,52.192768,20.944688,0,,1,Przedpole,Warszawa,Łopuszańska
+408802,Przedpole,02,,52.193449,20.942085,0,,1,Przedpole,Warszawa,Łopuszańska
+408901,WKD Raków,01,,52.19435,20.936086,0,,1,WKD Raków,Warszawa,Łopuszańska
+408902,WKD Raków,02,,52.194523,20.936107,0,,1,WKD Raków,Warszawa,Łopuszańska
+408903,WKD Raków,03,,52.193851,20.938071,0,,1,WKD Raków,Warszawa,Łopuszańska
+408904,WKD Raków,04,,52.194502,20.937598,0,,1,WKD Raków,Warszawa,Łopuszańska
+409001,Zajezdnia Kleszczowa,01,,52.196522,20.924876,0,,1,Zajezdnia Kleszczowa,Warszawa,Łopuszańska
+409002,Zajezdnia Kleszczowa,02,,52.197292,20.923467,0,,1,Zajezdnia Kleszczowa,Warszawa,Kleszczowa
+409004,Zajezdnia Kleszczowa,04,,52.196626,20.923424,0,,1,Zajezdnia Kleszczowa,Warszawa,Krańcowa
+409101,Dojazdowa,01,,52.198162,20.92001,0,,1,Dojazdowa,Warszawa,Kleszczowa
+409102,Dojazdowa,02,,52.198656,20.918372,0,,1,Dojazdowa,Warszawa,Kleszczowa
+409202,Ryżowa,02,,52.200197,20.914527,0,,1,Ryżowa,Warszawa,Bolesława Chrobrego
+409203,Ryżowa,03,,52.199564,20.914849,0,,1,Ryżowa,Warszawa,Kleszczowa
+409204,Ryżowa,04,,52.199122,20.913533,0,,1,Ryżowa,Warszawa,Ryżowa
+409401,Dzieci Warszawy,01,,52.192928,20.908758,0,,1,Dzieci Warszawy,Warszawa,Ryżowa
+409404,Dzieci Warszawy,04,,52.192569,20.907106,0,,1,Dzieci Warszawy,Warszawa,Dzieci Warszawy
+409501,Szancera,01,,52.194886,20.899684,0,,1,Szancera,Warszawa,Dzieci Warszawy
+409502,Szancera,02,,52.195708,20.897835,0,,1,Szancera,Warszawa,Dzieci Warszawy
+409601,Pl. Tysiąclecia,01,,52.193713,20.89066,0,,1,Pl. Tysiąclecia,Warszawa,Bohaterów Warszawy
+409602,Pl. Tysiąclecia,02,,52.193284,20.892343,0,,1,Pl. Tysiąclecia,Warszawa,Bohaterów Warszawy
+410102,Mikołajska,02,,52.203003,20.928346,0,,1,Mikołajska,Warszawa,Popularna
+410103,Mikołajska,03,,52.203444,20.926094,0,,1,Mikołajska,Warszawa,Popularna
+410201,Techników,01,,52.204327,20.92339,0,,1,Techników,Warszawa,Techników
+410202,Techników,02,,52.204673,20.923649,0,,1,Techników,Warszawa,Techników
+410301,Płużańska,01,,52.207103,20.92496,0,,1,Płużańska,Warszawa,Techników
+410302,Płużańska,02,,52.208121,20.924843,0,,1,Płużańska,Warszawa,Cegielniana
+410401,Instalatorów-KAM,01,,52.198139,20.958632,0,,1,Instalatorów-KAM,Warszawa,Instalatorów
+410402,Instalatorów-KAM,02,,52.198413,20.957613,0,,1,Instalatorów-KAM,Warszawa,Instalatorów
+410601,Instalatorów,01,,52.200351,20.949028,0,,1,Instalatorów,Warszawa,Instalatorów
+410602,Instalatorów,02,,52.200552,20.948335,0,,1,Instalatorów,Warszawa,Instalatorów
+411801,Opaczewska,01,,52.209905,20.970531,0,,1,Opaczewska,Warszawa,Białobrzeska
+412001,Urbanistów,01,,52.207347,20.968261,0,,1,Urbanistów,Warszawa,Białobrzeska
+412101,Wawelska,01,,52.216846,20.981885,0,,1,Wawelska,Warszawa,Grójecka
+412152,Wawelska,52,,52.215944,20.980574,0,,1,Wawelska,Warszawa,Grójecka
+412201,Al. Wielkopolski,01,,52.216514,20.995427,0,,1,Al. Wielkopolski,Warszawa,Wawelska
+412202,Al. Wielkopolski,02,,52.216876,20.996292,0,,1,Al. Wielkopolski,Warszawa,Wawelska
+412301,Adamieckiego,01,,52.193649,20.895804,0,,1,Adamieckiego,Warszawa,Sławka
+412302,Adamieckiego,02,,52.193464,20.895461,0,,1,Adamieckiego,Warszawa,Sławka
+412501,Skoroszewska,01,,52.193496,20.903779,0,,1,Skoroszewska,Warszawa,Dzieci Warszawy
+412502,Skoroszewska,02,,52.194096,20.90224,0,,1,Skoroszewska,Warszawa,Dzieci Warszawy
+413601,Magdalenka Graniczna,01,,52.0997,20.89914,0,,1,Graniczna,Magdalenka,Słoneczna
+413602,Magdalenka Graniczna,02,,52.09943,20.90049,0,,1,Graniczna,Magdalenka,Słoneczna
+413751,Hale Banacha,51,,52.208332,20.974453,0,,1,Hale Banacha,Warszawa,Grójecka
+413752,Hale Banacha,52,,52.208294,20.974317,0,,1,Hale Banacha,Warszawa,Grójecka
+414101,Ogród Działkowy im. Warneńczyka,01,,52.18422,20.96096,0,,1,Ogród Działkowy im. Warneńczyka,Warszawa,Komitetu Obrony Robotników
+414102,Ogród Działkowy im. Warneńczyka,02,,52.184667,20.96002,0,,1,Ogród Działkowy im. Warneńczyka,Warszawa,Komitetu Obrony Robotników
+414301,Drzewieckiego,01,,52.181438,20.973909,0,,1,Drzewieckiego,Warszawa,Komitetu Obrony Robotników
+414302,Drzewieckiego,02,,52.182213,20.972613,0,,1,Drzewieckiego,Warszawa,Komitetu Obrony Robotników
+414401,Wirażowa,01,,52.177425,20.984787,0,,1,Wirażowa,Warszawa,Komitetu Obrony Robotników
+414402,Wirażowa,02,,52.177866,20.982975,0,,1,Wirażowa,Warszawa,Komitetu Obrony Robotników
+415001,Nadarzyn Centrum Mody,01,,52.102134,20.826548,0,,1,Centrum Mody,Nadarzyn,al. Katowicka
+415002,Nadarzyn Centrum Mody,02,,52.101897,20.825876,0,,1,Centrum Mody,Nadarzyn,al. Katowicka
+415102,Nadarzyn Komorowska,02,,52.106826,20.813819,0,,1,Komorowska,Nadarzyn,Komorowska
+415404,Szczęśliwicka,04,,52.214961,20.969541,0,,1,Szczęśliwicka,Warszawa,Szczęśliwicka
+415455,Szczęśliwicka,55,,52.214753,20.969192,0,,1,Szczęśliwicka,Warszawa,Szczęśliwicka
+415501,Raszyn Młyn,01,,52.160751,20.927541,0,,1,Młyn,Raszyn,al. Krakowska
+415502,Raszyn Młyn,02,,52.158824,20.925153,0,,1,Młyn,Raszyn,al. Krakowska
+415602,Raszyn Szkolna,02,,52.155124,20.92127,0,,1,Szkolna,Raszyn,al. Krakowska
+415701,Raszyn Sportowa,01,,52.154305,20.920873,0,,1,Sportowa,Raszyn,al. Krakowska
+415702,Raszyn Sportowa,02,,52.153278,20.919322,0,,1,Sportowa,Raszyn,al. Krakowska
+415703,Raszyn Sportowa,03,,52.153305,20.920772,0,,1,Sportowa,Raszyn,Sportowa
+415801,Raszyn Kościół,01,,52.150613,20.916971,0,,1,Kościół,Raszyn,al. Krakowska
+415802,Raszyn Kościół,02,,52.150617,20.916589,0,,1,Kościół,Raszyn,al. Krakowska
+415901,Falenty Puchały,01,,52.14612,20.911152,0,,1,Puchały,Falenty,al. Krakowska
+415902,Falenty Puchały,02,,52.145922,20.910414,0,,1,Puchały,Falenty,al. Krakowska
+416001,Falenty Aleja Hrabska,01,,52.144193,20.908666,0,,1,Aleja Hrabska,Falenty,al. Krakowska
+416101,Falenty-Pałac,01,,52.13857,20.91958,0,,1,Falenty-Pałac,Falenty,al. Hrabska
+416201,Falenty-Osiedle,01,,52.136836,20.923372,0,,1,Falenty-Osiedle,Falenty,al. Hrabska
+416301,Falenty Nowe,01,,52.133354,20.919538,0,,1,Falenty Nowe,Falenty,Opackiego
+416402,Falenty Duże,02,,52.134028,20.916295,0,,1,Falenty Duże,Falenty,Falencka
+416502,Janki Falencka,02,,52.1379,20.9018,0,,1,Falencka,Janki,Falencka
+416601,Janki,01,,52.13856,20.90112,0,,1,Janki,Janki,al. Krakowska
+416602,Janki,02,,52.13966,20.90215,0,,1,Janki,Janki,al. Krakowska
+416701,Rybie,01,,52.14962,20.936412,0,,1,Rybie,Rybie,Raszyńska
+416702,Rybie,02,,52.14959,20.93688,0,,1,Rybie,Rybie,Raszyńska
+416801,Jaworowa Promyka,01,,52.146801,20.945691,0,,1,Promyka,Jaworowa,Warszawska
+416802,Jaworowa Promyka,02,,52.14653,20.94672,0,,2,Promyka,Jaworowa,Warszawska
+416901,Jaworowa Objazdowa,01,,52.145155,20.953965,0,,1,Objazdowa,Jaworowa,Warszawska
+416902,Jaworowa Objazdowa,02,,52.14507,20.955933,0,,1,Objazdowa,Jaworowa,Warszawska
+417001,Dawidy Spółdzielnia,01,,52.136947,20.971243,0,,1,Spółdzielnia,Dawidy,Warszawska
+417002,Dawidy Spółdzielnia,02,,52.13654,20.97177,0,,1,Spółdzielnia,Dawidy,Warszawska
+417101,Dawidy Długa,01,,52.13421,20.97462,0,,1,Długa,Dawidy,Długa
+417102,Dawidy Długa,02,,52.134532,20.975381,0,,2,Długa,Dawidy,Długa
+417201,Dawidy Baletowa,01,,52.133358,20.97923,0,,1,Baletowa,Dawidy,Warszawska
+417202,Dawidy Baletowa,02,,52.13332,20.97946,0,,1,Baletowa,Dawidy,Warszawska
+417301,Dawidy Bankowe Łady-Szkoła,01,,52.127348,20.9613,0,,1,Łady-Szkoła,Dawidy Bankowe,Długa
+417302,Dawidy Bankowe Łady-Szkoła,02,,52.128126,20.963024,0,,1,Łady-Szkoła,Dawidy Bankowe,Długa
+417401,Łady,01,,52.125486,20.955075,0,,1,Łady,Łady,Długa
+417402,Łady,02,,52.125867,20.956751,0,,1,Łady,Łady,Długa
+417501,Nowy Podolszyn,01,,52.121845,20.94766,0,,1,Nowy Podolszyn,Podolszyn Nowy,Długa
+417502,Nowy Podolszyn,02,,52.122083,20.948028,0,,1,Nowy Podolszyn,Podolszyn Nowy,Długa
+417601,Podolszyn,01,,52.119052,20.944127,0,,1,Podolszyn,Podolszyn Nowy,Długa
+417701,Dawidy Bankowe Kwiatów Polnych,01,,52.129868,20.97986,0,,1,Kwiatów Polnych,Dawidy Bankowe,Starzyńskiego
+417702,Dawidy Bankowe Kwiatów Polnych,02,,52.130425,20.979961,0,,1,Kwiatów Polnych,Dawidy Bankowe,Starzyńskiego
+417801,Dawidy Bankowe Boryny,01,,52.124258,20.979564,0,,1,Boryny,Dawidy Bankowe,Starzyńskiego
+417802,Dawidy Bankowe Boryny,02,,52.123971,20.979596,0,,1,Boryny,Dawidy Bankowe,Starzyńskiego
+417901,Dawidy Bankowe Miklaszewskiego,01,,52.121155,20.97939,0,,1,Miklaszewskiego,Dawidy Bankowe,Starzyńskiego
+417902,Dawidy Bankowe Miklaszewskiego,02,,52.120998,20.97943,0,,2,Miklaszewskiego,Dawidy Bankowe,Starzyńskiego
+418001,Dawidy Bankowe Starzyńskiego,01,,52.117536,20.97922,0,,1,Starzyńskiego,Dawidy Bankowe,Starzyńskiego
+418002,Dawidy Bankowe Starzyńskiego,02,,52.117828,20.979316,0,,1,Starzyńskiego,Dawidy Bankowe,Starzyńskiego
+418201,Zgorzała,01,,52.111206,20.98585,0,,1,Zgorzała,Zgorzała,Karczunkowska
+418202,Zgorzała,02,,52.112118,20.985441,0,,1,Zgorzała,Zgorzała,Zgorzalska
+419001,Jastrzębiec Szeroka,01,,52.032362,20.822168,0,,2,Szeroka,Jastrzębiec,Szeroka
+419801,Okęcie Business Park,01,,52.183378,20.965661,0,,1,Okęcie Business Park,Warszawa,Komitetu Obrony Robotników
+419802,Okęcie Business Park,02,,52.183675,20.964029,0,,1,Okęcie Business Park,Warszawa,Komitetu Obrony Robotników
+420001,Lotnisko Chopina-Odloty,01,,52.172074,20.973369,0,,1,Lotnisko Chopina-Odloty,Warszawa,Żwirki i Wigury
+420102,Lotnisko Chopina-Przyloty,02,,52.170675,20.97378,0,,1,Lotnisko Chopina-Przyloty,Warszawa,Żwirki i Wigury
+420201,Terminal Autokarowy,01,,52.168737,20.974537,0,,1,Terminal Autokarowy,Warszawa,Żwirki i Wigury
+420202,Terminal Autokarowy,02,,52.168086,20.975185,0,,1,Terminal Autokarowy,Warszawa,Żwirki i Wigury
+420302,Bennetta,02,,52.169738,20.979151,0,,1,Bennetta,Warszawa,Bennetta
+420601,Raszyn Stadion,01,,52.150531,20.929213,0,,1,Stadion,Raszyn,Sportowa
+420602,Raszyn Stadion,02,,52.150691,20.928486,0,,1,Stadion,Raszyn,Sportowa
+420701,Orląt Lwowskich,01,,52.190944,20.865595,0,,1,Orląt Lwowskich,Warszawa,Orląt Lwowskich
+421201,Parowcowa,01,,52.211792,20.91364,0,,1,Parowcowa,Warszawa,Dźwigowa
+421202,Parowcowa,02,,52.21233,20.91389,0,,1,Parowcowa,Warszawa,Dźwigowa
+421301,Wałowicka,01,,52.208744,20.913925,0,,1,Wałowicka,Warszawa,Globusowa
+421302,Wałowicka,02,,52.208603,20.914274,0,,1,Wałowicka,Warszawa,Globusowa
+421401,PKP Włochy,01,,52.205261,20.915649,0,,1,PKP Włochy,Warszawa,Bolesława Chrobrego
+421402,PKP Włochy,02,,52.205172,20.916138,0,,1,PKP Włochy,Warszawa,Bolesława Chrobrego
+421403,PKP Włochy,03,,52.207194,20.916014,0,,1,PKP Włochy,Warszawa,Globusowa
+421404,PKP Włochy,04,,52.206308,20.914393,0,,1,PKP Włochy,Warszawa,Świerszcza
+421501,Przepiórki,01,,52.203095,20.904685,0,,1,Przepiórki,Warszawa,Świerszcza
+421502,Przepiórki,02,,52.202854,20.903698,0,,1,Przepiórki,Warszawa,Świerszcza
+421601,Ursus-Ratusz,01,,52.201675,20.89617,0,,1,Ursus-Ratusz,Warszawa,Traktorzystów
+421602,Ursus-Ratusz,02,,52.200889,20.896157,0,,1,Ursus-Ratusz,Warszawa,Traktorzystów
+421603,Ursus-Ratusz,03,,52.200359,20.893006,0,,1,Ursus-Ratusz,Warszawa,pl. Czerwca 1976 r.
+421704,PKP Ursus,04,,52.19528,20.88657,0,,1,PKP Ursus,Warszawa,Bohaterów Warszawy
+421705,PKP Ursus,05,,52.194848,20.885267,0,,1,PKP Ursus,Warszawa,Kościuszki
+421802,Lalki,02,,52.197696,20.878799,0,,1,Lalki,Warszawa,Władysława Jagiełły
+421803,Lalki,03,,52.197572,20.881237,0,,1,Lalki,Warszawa,Lalki
+421901,Śmigielska,01,,52.198247,20.870555,0,,1,Śmigielska,Warszawa,Warszawska
+421902,Śmigielska,02,,52.197961,20.868938,0,,1,Śmigielska,Warszawa,Warszawska
+422102,Ursus-Niedźwiadek,02,,52.190196,20.862637,0,,1,Ursus-Niedźwiadek,Warszawa,Orląt Lwowskich
+422104,Ursus-Niedźwiadek,04,,52.190379,20.861991,0,,1,Ursus-Niedźwiadek,Warszawa,Orląt Lwowskich
+422501,Sympatyczna,01,,52.209582,20.920463,0,,1,Sympatyczna,Warszawa,Sympatyczna
+422502,Sympatyczna,02,,52.20972,20.920132,0,,1,Sympatyczna,Warszawa,Sympatyczna
+422503,Sympatyczna,03,,52.2103,20.91986,0,,1,Sympatyczna,Warszawa,Potrzebna
+424401,Nadarzyn Kościuszki,01,,52.093253,20.805412,0,,1,Kościuszki,Nadarzyn,Warszawska
+424602,Nadarzyn Komorowska-Hotel,02,,52.101223,20.814986,0,,1,Komorowska-Hotel,Nadarzyn,Komorowska
+424702,Strzeniówka Macierzanki,02,,52.115441,20.808837,0,,2,Macierzanki,Strzeniówka,Komorowska
+424802,Strzeniówka Jodłowa,02,,52.115911,20.798705,0,,1,Jodłowa,Strzeniówka,Jodłowa
+424902,Nadarzyn Lipowa,02,,52.10621,20.80207,0,,1,Lipowa,Nadarzyn,Pruszkowska
+425001,Magdalenka,01,,52.09834,20.90938,0,,1,Magdalenka,Magdalenka,Słoneczna
+425002,Magdalenka,02,,52.09805,20.91098,0,,1,Magdalenka,Magdalenka,Słoneczna
+425101,Lesznowola,01,,52.091218,20.933631,0,,1,Lesznowola,Lesznowola,Słoneczna
+425102,Lesznowola,02,,52.09083,20.93417,0,,1,Lesznowola,Lesznowola,Słoneczna
+426001,Lesznowola-Pole,01,,52.09597,20.92331,0,,1,Lesznowola-Pole,Lesznowola,Słoneczna
+426002,Lesznowola-Pole,02,,52.09549,20.92452,0,,1,Lesznowola-Pole,Lesznowola,Słoneczna
+426301,Rozalin Winogronowa,01,,52.055308,20.744603,0,,2,Winogronowa,Rozalin,Przemysłowa
+426401,Warszawianka Brzozowa,01,,52.032088,20.870395,0,,1,Brzozowa,Warszawianka,Rejonowa
+426402,Warszawianka Brzozowa,02,,52.031552,20.870868,0,,2,Brzozowa,Warszawianka,Rejonowa
+426501,Szczaki Łanowa,01,,52.017676,20.884863,0,,1,Łanowa,Szczaki,Mrokowska
+426502,Szczaki Łanowa,02,,52.017089,20.885321,0,,1,Łanowa,Szczaki,Mrokowska
+426601,Kosów,01,,52.05501,20.829556,0,,2,Kosów,Kosów,Karasia
+426701,Wólka Kosowska,01,,52.05738,20.84302,0,,1,Wólka Kosowska,Wólka Kosowska,Nadrzeczna
+426702,Wólka Kosowska,02,,52.057251,20.84125,0,,2,Wólka Kosowska,Wólka Kosowska,Nadrzeczna
+426801,Dawidy Bankowe Parlamentarna,01,,52.127446,20.979743,0,,1,Parlamentarna,Dawidy Bankowe,Starzyńskiego
+426802,Dawidy Bankowe Parlamentarna,02,,52.128214,20.979827,0,,1,Parlamentarna,Dawidy Bankowe,Starzyńskiego
+426901,Lesznowola Szkolna,01,,52.086308,20.947264,0,,1,Szkolna,Lesznowola,Słoneczna
+426902,Lesznowola Szkolna,02,,52.085605,20.949765,0,,1,Szkolna,Lesznowola,Słoneczna
+427001,Kolonia Lesznowola Postępu,01,,52.081156,20.968842,0,,1,Postępu,Kolonia Lesznowola,Słoneczna
+427002,Kolonia Lesznowola Postępu,02,,52.081593,20.967157,0,,2,Postępu,Kolonia Lesznowola,Słoneczna
+427201,Kostowiec,01,,52.061735,20.744871,0,,1,Kostowiec,Kostowiec,Przemysłowa
+427501,Stara Iwiczna Krótka,01,,52.08077,20.975562,0,,2,Krótka,Stara Iwiczna,Słoneczna
+427502,Stara Iwiczna Krótka,02,,52.080878,20.977301,0,,1,Krótka,Stara Iwiczna,Słoneczna
+427601,Stara Iwiczna Kielecka,01,,52.082231,20.994066,0,,1,Kielecka,Stara Iwiczna,Słoneczna
+427602,Stara Iwiczna Kielecka,02,,52.082065,20.992374,0,,1,Kielecka,Stara Iwiczna,Słoneczna
+427701,Stara Iwiczna Nowa,01,,52.082799,21.003378,0,,1,Nowa,Stara Iwiczna,Nowa
+427702,Stara Iwiczna Nowa,02,,52.082498,21.006018,0,,2,Nowa,Stara Iwiczna,Nowa
+427801,CH Wólka Kosowska,01,,52.057639,20.858629,0,,1,CH Wólka Kosowska,Wólka Kosowska,Nadrzeczna
+427802,CH Wólka Kosowska,02,,52.057681,20.856482,0,,1,CH Wólka Kosowska,Wólka Kosowska,Nadrzeczna
+427901,Okrężna,01,,52.157993,20.945535,0,,1,Okrężna,Warszawa,Na Skraju
+427902,Okrężna,02,,52.157558,20.946316,0,,1,Okrężna,Warszawa,Na Skraju
+428501,Nadarzyn Urząd Gminy,01,,52.090014,20.801126,0,,1,Urząd Gminy,Nadarzyn,Mszczonowska
+428502,Nadarzyn Urząd Gminy,02,,52.090983,20.802595,0,,1,Urząd Gminy,Nadarzyn,Mszczonowska
+428601,Nadarzyn Starowiejska,01,,52.083478,20.792547,0,,1,Starowiejska,Nadarzyn,Mszczonowska
+428602,Nadarzyn Starowiejska,02,,52.083326,20.792524,0,,1,Starowiejska,Nadarzyn,Mszczonowska
+428701,Stara Wieś,01,,52.08208,20.767402,0,,1,Stara Wieś,Stara Wieś,Grodziska
+428801,Rusiec,01,,52.077882,20.783931,0,,1,Rusiec,Rusiec,al. Katowicka
+428802,Rusiec,02,,52.07832,20.784998,0,,1,Rusiec,Rusiec,al. Katowicka
+428901,Urzut,01,,52.07059,20.758968,0,,1,Urzut,Urzut,al. Katowicka
+429001,Rozalin,01,,52.048919,20.744907,0,,1,Rozalin,Rozalin,Przemysłowa
+429101,Rozalin Pałacowa,01,,52.048493,20.753772,0,,1,Pałacowa,Rozalin,Młochowska
+429201,Młochów Kanarkowa,01,,52.049856,20.767906,0,,1,Kanarkowa,Młochów,Mazowiecka
+429301,Młochów,01,,52.048316,20.780957,0,,1,Młochów,Młochów,Mazowiecka
+429402,Młochów Os. Belina,02,,52.062063,20.785973,0,,1,Os. Belina,Młochów,al. Kasztanowa
+429501,Młochów Żabieniec,01,,52.074698,20.769985,0,,1,Żabieniec,Młochów,al. Katowicka
+429502,Młochów Żabieniec,02,,52.073515,20.774313,0,,1,Żabieniec,Młochów,al. Kasztanowa
+429602,Młochów Platanowa,02,,52.048995,20.783857,0,,1,Platanowa,Młochów,Platanowa
+429701,Młochów Leśniczówka,01,,52.030427,20.782797,0,,2,Leśniczówka,Młochów,
+429801,Krakowiany,01,,52.023174,20.7868,0,,1,Krakowiany,Krakowiany,Młynowa
+429901,Wola Krakowiańska,01,,52.029836,20.801701,0,,2,Wola Krakowiańska,Wola Krakowiańska,Jastrzębska
+430001,Jastrzębiec Garbatka,01,,52.031467,20.813057,0,,2,Garbatka,Jastrzębiec,Postępu
+430101,Parole,01,,52.036453,20.821581,0,,1,Parole,Parole,Szeroka
+430201,Parole-Pętla,01,,52.040138,20.815114,0,,1,Parole-Pętla,Parole,Szeroka
+430301,Jadwisin,01,,52.194053,20.969526,0,,1,Jadwisin,Warszawa,1 Sierpnia
+430302,Jadwisin,02,,52.194687,20.967129,0,,1,Jadwisin,Warszawa,1 Sierpnia
+430401,Urząd Statystyczny,01,,52.19324,20.97314,0,,1,Urząd Statystyczny,Warszawa,1 Sierpnia
+430402,Urząd Statystyczny,02,,52.193367,20.972905,0,,1,Urząd Statystyczny,Warszawa,1 Sierpnia
+433301,Szamoty Kozaków,01,,52.062802,20.845217,0,,1,Kozaków,Szamoty,Nadarzyńska
+433302,Szamoty Kozaków,02,,52.062533,20.845249,0,,1,Kozaków,Szamoty,Nadarzyńska
+434202,PKP Ursus-Niedźwiadek,02,,52.191475,20.867942,0,,1,PKP Ursus-Niedźwiadek,Warszawa,Orląt Lwowskich
+434204,PKP Ursus-Niedźwiadek,04,,52.19228,20.86877,0,,1,PKP Ursus-Niedźwiadek,Warszawa,Keniga
+434301,Keniga,01,,52.194724,20.867528,0,,1,Keniga,Warszawa,Keniga
+434302,Keniga,02,,52.193376,20.868173,0,,1,Keniga,Warszawa,Keniga
+434701,Węzeł Nadarzyn,01,,52.09357,20.808829,0,,1,Węzeł Nadarzyn,Nadarzyn,Kościelna
+434702,Węzeł Nadarzyn,02,,52.093456,20.810518,0,,1,Węzeł Nadarzyn,Nadarzyn,Kościelna
+434801,PKP Żwirki i Wigury,01,,52.19357,20.981904,0,,1,PKP Żwirki i Wigury,Warszawa,Żwirki i Wigury
+434901,P+R Nadarzyn,01,,52.090999,20.800152,0,,1,P+R Nadarzyn,Nadarzyn,Graniczna
+434903,P+R Nadarzyn,03,,52.091016,20.800337,0,,1,P+R Nadarzyn,Nadarzyn,Graniczna
+434904,P+R Nadarzyn,04,,52.0913,20.800262,0,,1,P+R Nadarzyn,Nadarzyn,Graniczna
+435101,Grójecka,01,,52.199894,20.967021,0,,1,Grójecka,Warszawa,Grójecka
+435102,Grójecka,02,,52.199339,20.966028,0,,1,Grójecka,Warszawa,Grójecka
+435302,Łady Figowa,02,,52.123737,20.951697,0,,1,Figowa,Łady,Długa
+435601,Gniewkowska,01,,52.212842,20.922139,0,,1,Gniewkowska,Warszawa,Potrzebna
+435652,Gniewkowska,52,,52.212333,20.92174,0,,1,Gniewkowska,Warszawa,Potrzebna
+440151,Przemyska,51,,52.211491,20.971953,0,,1,Przemyska,Warszawa,Białobrzeska
+440152,Przemyska,52,,52.212109,20.972388,0,,1,Przemyska,Warszawa,Białobrzeska
+484701,Rakowska,01,,52.199052,20.954605,0,,1,Rakowska,Warszawa,Instalatorów
+484702,Rakowska,02,,52.19956,20.952664,0,,1,Rakowska,Warszawa,Instalatorów
+501203,Ciepłownia Wola,03,,52.221288,20.916997,0,,1,Ciepłownia Wola,Warszawa,Powstańców Śląskich
+501206,Ciepłownia Wola,06,,52.219379,20.91601,0,,1,Ciepłownia Wola,Warszawa,Dźwigowa
+504702,Człuchowska,02,,52.22827,20.897144,0,,1,Człuchowska,Warszawa,Lazurowa
+504703,Człuchowska,03,,52.227548,20.897879,0,,1,Człuchowska,Warszawa,Człuchowska
+504801,Batalionów Chłopskich,01,,52.231065,20.896684,0,,1,Batalionów Chłopskich,Warszawa,Lazurowa
+504802,Batalionów Chłopskich,02,,52.23226,20.896941,0,,1,Batalionów Chłopskich,Warszawa,Lazurowa
+504901,Szobera,01,,52.235187,20.896473,0,,1,Szobera,Warszawa,Lazurowa
+504902,Szobera,02,,52.236967,20.8967,0,,1,Szobera,Warszawa,Lazurowa
+505001,Os. Górczewska,01,,52.238926,20.89624,0,,1,Os. Górczewska,Warszawa,Lazurowa
+505003,Os. Górczewska,03,,52.239411,20.897573,0,,1,Os. Górczewska,Warszawa,Górczewska
+505701,Synów Pułku,01,,52.22467,20.916363,0,,1,Synów Pułku,Warszawa,Powstańców Śląskich
+505702,Synów Pułku,02,,52.225596,20.916541,0,,1,Synów Pułku,Warszawa,Powstańców Śląskich
+505801,Hala Wola,01,,52.228435,20.915318,0,,1,Hala Wola,Warszawa,Powstańców Śląskich
+505804,Hala Wola,04,,52.229061,20.914566,0,,1,Hala Wola,Warszawa,Człuchowska
+510801,Raginisa,01,,52.228363,20.908157,0,,1,Raginisa,Warszawa,Człuchowska
+510802,Raginisa,02,,52.228452,20.90635,0,,1,Raginisa,Warszawa,Człuchowska
+510901,Rozłogi,01,,52.227893,20.901789,0,,1,Rozłogi,Warszawa,Człuchowska
+510902,Rozłogi,02,,52.227939,20.900427,0,,1,Rozłogi,Warszawa,Człuchowska
+512701,Wagonownia,01,,52.214575,20.930345,0,,2,Wagonownia,Warszawa,Potrzebna
+700201,Dw. Centralny,01,,52.22789,21.00375,0,,1,Dw. Centralny,Warszawa,Al. Jerozolimskie
+700202,Dw. Centralny,02,,52.228223,21.003378,0,,1,Dw. Centralny,Warszawa,Al. Jerozolimskie
+700229,Dw. Centralny,29,,52.229286,21.003772,0,,1,Dw. Centralny,Warszawa,jezdnia płn. Dw. Centralnego
+700601,Metro Politechnika,01,,52.216862,21.013961,0,,1,Metro Politechnika,Warszawa,al. Armii Ludowej
+700602,Metro Politechnika,02,,52.21726,21.013801,0,,1,Metro Politechnika,Warszawa,al. Armii Ludowej
+700901,Marszałkowska,01,,52.217931,21.020112,0,,2,Marszałkowska,Warszawa,al. Armii Ludowej
+700902,Marszałkowska,02,,52.218091,21.019708,0,,2,Marszałkowska,Warszawa,al. Armii Ludowej
+701304,Centrum,04,,52.231426,21.010996,0,,1,Centrum,Warszawa,Marszałkowska
+701306,Centrum,06,,52.229589,21.009962,0,,1,Centrum,Warszawa,Al. Jerozolimskie
+701315,Centrum,15,,52.229989,21.013157,0,,1,Centrum,Warszawa,Al. Jerozolimskie
+701401,Metro Świętokrzyska,01,,52.236352,21.007656,0,,1,Metro Świętokrzyska,Warszawa,Marszałkowska
+701402,Metro Świętokrzyska,02,,52.23415713,21.00936503,0,,1,Metro Świętokrzyska,Warszawa,Marszałkowska
+701503,Królewska,03,,52.238531,21.007936,0,,1,Królewska,Warszawa,Królewska
+702601,Pl. Teatralny,01,,52.242821,21.00994,0,,1,Pl. Teatralny,Warszawa,Wierzbowa
+702701,Pl. Piłsudskiego,01,,52.241898,21.012651,0,,1,Pl. Piłsudskiego,Warszawa,Wierzbowa
+702702,Pl. Piłsudskiego,02,,52.242475,21.013271,0,,1,Pl. Piłsudskiego,Warszawa,Focha
+702704,Pl. Piłsudskiego,04,,52.243145,21.012928,0,,1,Pl. Piłsudskiego,Warszawa,Focha
+702706,Pl. Piłsudskiego,06,,52.24311,21.012808,0,,1,Pl. Piłsudskiego,Warszawa,Focha
+702801,Zachęta,01,,52.239346,21.01059,0,,1,Zachęta,Warszawa,Królewska
+702802,Zachęta,02,,52.239674,21.011267,0,,1,Zachęta,Warszawa,Królewska
+703301,Krucza,01,,52.231027,21.017979,0,,1,Krucza,Warszawa,Al. Jerozolimskie
+703302,Krucza,02,,52.231327,21.018133,0,,1,Krucza,Warszawa,Al. Jerozolimskie
+703705,Pl. Na Rozdrożu,05,,52.219525,21.026608,0,,2,Pl. Na Rozdrożu,Warszawa,al. Armii Ludowej
+703706,Pl. Na Rozdrożu,06,,52.219644,21.026035,0,,2,Pl. Na Rozdrożu,Warszawa,al. Armii Ludowej
+704201,Foksal,01,,52.232358,21.020015,0,,1,Foksal,Warszawa,Nowy Świat
+704202,Foksal,02,,52.233266,21.019528,0,,1,Foksal,Warszawa,Nowy Świat
+704401,Uniwersytet,01,,52.240069,21.016608,0,,1,Uniwersytet,Warszawa,Krakowskie Przedmieście
+704402,Uniwersytet,02,,52.23921,21.0173,0,,1,Uniwersytet,Warszawa,Krakowskie Przedmieście
+704501,Hotel Bristol,01,,52.24198,21.015361,0,,1,Hotel Bristol,Warszawa,Krakowskie Przedmieście
+704601,Pl. Zamkowy,01,,52.24536,21.01382,0,,1,Pl. Zamkowy,Warszawa,Krakowskie Przedmieście
+704901,Ordynacka,01,,52.236112,21.018153,0,,1,Ordynacka,Warszawa,Nowy Świat
+704902,Ordynacka,02,,52.235839,21.01833,0,,1,Ordynacka,Warszawa,Nowy Świat
+707101,Rozbrat,01,,52.222289,21.037618,0,,1,Rozbrat,Warszawa,al. Armii Ludowej
+707102,Rozbrat,02,,52.222394,21.037097,0,,1,Rozbrat,Warszawa,al. Armii Ludowej
+707301,Szwoleżerów,01,,52.215174,21.04591,0,,1,Szwoleżerów,Warszawa,Czerniakowska
+707302,Szwoleżerów,02,,52.215391,21.046296,0,,1,Szwoleżerów,Warszawa,Czerniakowska
+707401,Zaruskiego,01,,52.218719,21.045546,0,,1,Zaruskiego,Warszawa,Czerniakowska
+707402,Zaruskiego,02,,52.218766,21.045902,0,,1,Zaruskiego,Warszawa,Czerniakowska
+707501,Legia-Stadion,01,,52.22013,21.045036,0,,1,Legia-Stadion,Warszawa,Czerniakowska
+707503,Legia-Stadion,03,,52.220921,21.045231,0,,1,Legia-Stadion,Warszawa,Czerniakowska
+707601,Torwar,01,,52.224173,21.043941,0,,2,Torwar,Warszawa,most Łazienkowski
+707602,Torwar,02,,52.224357,21.043661,0,,2,Torwar,Warszawa,most Łazienkowski
+707603,Torwar,03,,52.224105,21.043613,0,,2,Torwar,Warszawa,Solec
+709305,GUS,05,,52.217168,21.006397,0,,2,GUS,Warszawa,al. Armii Ludowej
+709306,GUS,06,,52.217327,21.005984,0,,2,GUS,Warszawa,al. Armii Ludowej

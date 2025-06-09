@@ -1,0 +1,20 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color
+124,0,124,Paluch – PKP Rakowiec,3,880077,FFFFFF
+141,0,141,P+R Al. Krakowska – Witolin,3,880077,FFFFFF
+154,0,154,Dw. Zachodni – P+R Al. Krakowska,3,880077,FFFFFF
+175,0,175,Terminal Autokarowy – Pl. Piłsudskiego,3,880077,FFFFFF
+188,0,188,Terminal Autokarowy – PKP Gocławek,3,880077,FFFFFF
+189,0,189,Sadyba – Os. Górczewska,3,880077,FFFFFF
+228,0,228,Sasanki – Ursus-Ratusz,3,880077,FFFFFF
+317,0,317,P+R Al. Krakowska – Wilanów,3,880077,FFFFFF
+401,0,401,Ursynów Płd. – Ursus-Niedźwiadek,3,B60000,FFFFFF
+504,0,504,Os. Kabaty – Dw. Centralny,3,B60000,FFFFFF
+703,0,703,Kosów – PKP Rakowiec,3,006800,FFFFFF
+706,0,706,Janki Pl. Szwedzki – PKP Rakowiec,3,006800,FFFFFF
+707,0,707,PKP Rakowiec – Piaseczno Targowisko,3,006800,FFFFFF
+711,0,711,P+R Nadarzyn – PKP Rakowiec,3,006800,FFFFFF
+715,0,715,PKP Rakowiec – Ursynów Płn.,3,006800,FFFFFF
+721,0,721,Kosów – PKP Rakowiec,3,006800,FFFFFF
+728,0,728,Złotokłos – PKP Rakowiec,3,006800,FFFFFF
+733,0,733,Młochów – PKP Rakowiec,3,006800,FFFFFF
+Z-9,0,Z-9,P+R Al. Krakowska – Pl. Narutowicza,3,880077,FFFFFF
