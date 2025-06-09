@@ -34,7 +34,15 @@ import subprocess
 import sys
 import plotly.express as px
 import plotly.graph_objects as go
+# PAGE CONFIGURATION
+# ==========================================
 
+st.set_page_config(
+    page_title="Warsaw Apartment Hunter",
+    page_icon="🏠",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 # ===== THEME TOGGLE  =====
 # Theme toggle setup
 if 'theme_mode' not in st.session_state:
@@ -61,15 +69,7 @@ elif not dark_mode and st.session_state.theme_mode == 'dark':
 st.sidebar.markdown("---")  # Add separator
 # ===== END THEME TOGGLE =====
 # ==========================================
-# PAGE CONFIGURATION
-# ==========================================
 
-st.set_page_config(
-    page_title="Warsaw Apartment Hunter",
-    page_icon="🏠",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 # ==========================================
 # CONFIGURATION SETUP
