@@ -43,9 +43,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+
 # ===== THEME TOGGLE  =====
 # Theme toggle setup
-if 'theme_mode' not in st.session_state:
+"""if 'theme_mode' not in st.session_state:
     st.session_state.theme_mode = 'light'
 
 st.sidebar.markdown("### 🎨 Display Settings")
@@ -65,7 +67,7 @@ if dark_mode != (st.session_state.theme_mode == 'dark'):
     else:
         st._config.set_option('theme.base', 'light')
         st.session_state.theme_mode = 'light'
-    st.rerun()
+    st.rerun()"""
 
 # ===== END THEME TOGGLE =====
 # ==========================================
