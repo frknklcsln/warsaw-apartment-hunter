@@ -996,19 +996,30 @@ with st.sidebar:
     st.markdown("Manage apartment data and refresh the dashboard:")
 
     # Apartment Data Refresh (kept as requested)
-    st.markdown("**🏠 Apartment Data**")
-    if st.button(
-        "🔄 Update Apartments",
-        key="refresh_apartments_btn",
-        use_container_width=True,
-        help="Run scraper.py to get latest apartment listings"
-    ):
-        success = run_data_refresh_script("src/scraper.py", "Apartment Data Scraper")
-        if success:
-            clear_all_caches_and_reset()
-            st.success("🔄 Dashboard refreshed with new apartment data!")
-            time.sleep(2)
-            st.rerun()
+    # --- THIS SECTION REPLACES THE MANUAL UPDATE BUTTON ---
+
+    # Display the last update time of the apartment data file
+    st.markdown("**🏠 Apartment Data Status**")
+    try:
+        # Use the file path from your CONFIG at the top of the file
+        data_file_path = CONFIG['apartments_path']
+
+        if os.path.exists(data_file_path):
+            # Get the file's last modification time as a timestamp
+            last_modified_timestamp = os.path.getmtime(data_file_path)
+            # Convert the timestamp to a readable datetime object
+            last_updated_time = datetime.fromtimestamp(last_modified_timestamp)
+
+            # Display the last update time in a user-friendly format
+            st.success(f"Data last updated: {last_updated_time.strftime('%Y-%m-%d %H:%M')}")
+            st.info("Data is automatically refreshed multiple times a day via GitHub Actions.")
+        else:
+            st.error("Apartment data file not found. Please run the initial scraper.")
+
+    except Exception as e:
+        st.error(f"Could not read data update time: {str(e)}")
+
+    # --- THE MANUAL CACHE CLEAR BUTTON REMAINS THE SAME ---
 
     # Manual Cache Clear
     st.markdown("**🗑️ Cache Management**")
