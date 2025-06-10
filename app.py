@@ -1428,6 +1428,7 @@ if st.session_state.filter_applied:
                     st.markdown('</div>', unsafe_allow_html=True)
 
 
+
         else:
 
             # No results found - enhanced feedback ONLY (no welcome message)
@@ -1453,37 +1454,6 @@ if st.session_state.filter_applied:
             # CRITICAL: Stop execution here - don't continue to welcome message
 
             st.stop()
-
-else:
-    # No filters applied yet - show welcome message ONLY
-    st.markdown("""
-    <div class="info-box">
-        <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
-        <p>Use the filters in the sidebar to find apartments that match your criteria and commute preferences.</p>
-        <p><strong>Getting Started:</strong></p>
-        <ul>
-            <li>Set your room and price preferences</li>
-            <li>Choose your maximum travel time to work</li>
-            <li>Select the date range for listings</li>
-            <li>Click "Find Apartments" to see results</li>
-        </ul>
-        <p><strong>Quick Address Check:</strong></p>
-        <ul>
-            <li>Use the sidebar tool to check any Warsaw address</li>
-            <li>Get instant feasibility analysis</li>
-            <li>See travel time breakdown</li>
-            <li>View results on the map</li>
-        </ul>
-        <p><strong>Data Management:</strong></p>
-        <ul>
-            <li>Use "Update Apartments" to run the scraper for new listings</li>
-            <li>Use "Clear Cache" to refresh the dashboard</li>
-            <li><strong>Note:</strong> Transport data is pre-optimized and doesn't need updates</li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
-
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
