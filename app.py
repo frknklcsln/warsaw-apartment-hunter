@@ -86,7 +86,7 @@ st.markdown("""
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
-        max-width: 100%;
+        max-width: 50%;
     }
     
     /* Header styling with gradient background */
@@ -101,7 +101,7 @@ st.markdown("""
     }
     
     .main-header h1 {
-        font-size: 1rem;
+        font-size: 2.5rem;
         font-weight: 300;
         margin: 0;
         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
