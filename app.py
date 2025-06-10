@@ -97,7 +97,7 @@ st.markdown("""
         border-radius: 9px;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     }
     
     .main-header h1 {
