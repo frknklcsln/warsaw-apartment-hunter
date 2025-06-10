@@ -1473,6 +1473,11 @@ elif not st.session_state.get('filter_applied', False):
         </ul>
     </div>
     """, unsafe_allow_html=True)
+# IMPORTANT: Add this line to prevent any code after this from running
+else:
+    # This ensures nothing else displays when filters are applied but no results found
+    pass
+
 
 
 # ==========================================
