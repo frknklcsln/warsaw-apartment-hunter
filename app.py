@@ -102,7 +102,7 @@ st.markdown("""
     
     .main-header h1 {
         font-size: 2.5rem;
-        font-weight: 200;
+        font-weight: 1200;
         margin: 0;
         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
