@@ -683,10 +683,6 @@ def clear_all_caches_and_reset():
 # CHART CREATION FUNCTIONS
 # ==========================================
 
-# ==========================================
-# CHART CREATION FUNCTIONS
-# ==========================================
-
 def create_enhanced_price_chart(df):
     """Creates a modern, styled histogram for price distribution."""
     fig = px.histogram(df, x="price", nbins=20, title="💰 Price Distribution")
@@ -699,11 +695,10 @@ def create_enhanced_price_chart(df):
     fig.update_traces(marker_color='#667eea', marker_line=dict(width=1, color='white'))
     return fig
 
-
 def create_enhanced_travel_chart(df, apartment_routes):
     """Creates a modern, styled histogram for travel time distribution."""
-    travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if
-                    route['listing_id'] in df.index]
+    # Correctly calculates travel_times inside the function from the two arguments
+    travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if route.get('listing_id') in df.index]
     if not travel_times: return go.Figure()  # Return empty figure if no data
 
     fig = px.histogram(x=travel_times, nbins=15, title="🚌 Travel Time Distribution")
@@ -715,7 +710,6 @@ def create_enhanced_travel_chart(df, apartment_routes):
     )
     fig.update_traces(marker_color='#f093fb', marker_line=dict(width=1, color='white'))
     return fig
-
 
 def create_enhanced_scatter_chart(df, apartment_routes):
     """Creates a modern scatter plot of Price vs. Travel Time, with area representing size."""
@@ -735,7 +729,7 @@ def create_enhanced_scatter_chart(df, apartment_routes):
     fig = px.scatter(
         scatter_df, x="travel_time", y="price", size="area", color="rooms",
         title="💸 Price vs. Commute Time (Size by Area, Color by Rooms)",
-        size_max=18, hover_name=scatter_df.index,
+        size_max=18,
         color_continuous_scale=px.colors.sequential.Viridis
     )
     fig.update_layout(
@@ -746,7 +740,6 @@ def create_enhanced_scatter_chart(df, apartment_routes):
         legend_title_text='Rooms'
     )
     return fig
-
 
 def create_enhanced_timeline_chart(df):
     """Creates a modern area chart showing new listings over time."""
@@ -762,111 +755,6 @@ def create_enhanced_timeline_chart(df):
         showlegend=False
     )
     fig.update_traces(line=dict(color='#667eea', width=3), fillcolor='rgba(102, 126, 234, 0.3)')
-    return fig
-
-
-def create_enhanced_travel_chart(travel_times):
-    """Create enhanced travel time distribution chart."""
-    fig = px.histogram(
-        x=travel_times,
-        nbins=8,
-        title="🚌 Travel Time Distribution"
-    )
-
-    colors = ['#667eea', '#6b7eeb', '#707eec', '#757eed', '#7a7eee', '#7f7eef', '#847ef0', '#897ef1']
-
-    fig.update_traces(
-        marker=dict(
-            color=colors,
-            line=dict(color='white', width=1)
-        )
-    )
-
-    fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
-        font_color='white',
-        title_font_size=16,
-        title_x=0.5,
-        xaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Travel Time (minutes)",
-            title_font_color='white'
-        ),
-        yaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Number of Apartments",
-            title_font_color='white'
-        )
-    )
-
-    return fig
-
-def create_enhanced_scatter_chart(scatter_df):
-    """Create enhanced scatter plot showing price vs travel time."""
-    fig = px.scatter(
-        scatter_df,
-        x='travel_time',
-        y='price',
-        size='area',
-        title="💰 Price vs Travel Time",
-        color='travel_time',
-        color_continuous_scale='Viridis',
-        size_max=20
-    )
-
-    fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
-        font_color='white',
-        title_font_size=16,
-        title_x=0.5,
-        xaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Travel Time (minutes)",
-            title_font_color='white'
-        ),
-        yaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Price (PLN)",
-            title_font_color='white'
-        )
-    )
-
-    return fig
-
-def create_enhanced_timeline_chart(date_counts):
-    """Create enhanced timeline chart showing listings over time."""
-    fig = px.line(
-        x=date_counts.index,
-        y=date_counts.values,
-        title="📅 Listings Created Over Time"
-    )
-
-    fig.update_traces(
-        line=dict(color='#667eea', width=3),
-        fill='tonexty',
-        fillcolor='rgba(102, 126, 234, 0.3)'
-    )
-
-    fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
-        font_color='white',
-        title_font_size=16,
-        title_x=0.5,
-        xaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Date",
-            title_font_color='white'
-        ),
-        yaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Number of Listings",
-            title_font_color='white'
-        )
-    )
-
     return fig
 
 # ==========================================
