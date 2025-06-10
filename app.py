@@ -1206,31 +1206,30 @@ if st.session_state.get('filter_applied', False):
         with tab3:
             st.markdown("### 📊 Market Analytics")
 
-            # Create two columns for the histograms
             col1, col2 = st.columns(2)
 
             with col1:
                 st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                 price_chart = create_enhanced_price_chart(final_filtered_df)
-                st.plotly_chart(price_chart, use_container_width=True)
+                st.plotly_chart(price_chart, use_container_width=True, key="price_chart")
                 st.markdown('</div>', unsafe_allow_html=True)
 
             with col2:
                 st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                 travel_chart = create_enhanced_travel_chart(final_filtered_df, apartment_routes)
-                st.plotly_chart(travel_chart, use_container_width=True)
+                st.plotly_chart(travel_chart, use_container_width=True, key="travel_chart")
                 st.markdown('</div>', unsafe_allow_html=True)
 
-            # Create full-width charts for the more detailed analytics
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
             scatter_chart = create_enhanced_scatter_chart(final_filtered_df, apartment_routes)
-            st.plotly_chart(scatter_chart, use_container_width=True)
+            st.plotly_chart(scatter_chart, use_container_width=True, key="scatter_chart")
             st.markdown('</div>', unsafe_allow_html=True)
 
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
             timeline_chart = create_enhanced_timeline_chart(final_filtered_df)
-            st.plotly_chart(timeline_chart, use_container_width=True)
+            st.plotly_chart(timeline_chart, use_container_width=True, key="timeline_chart")
             st.markdown('</div>', unsafe_allow_html=True)
+
 
 
     else:
