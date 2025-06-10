@@ -1427,26 +1427,35 @@ if st.session_state.filter_applied:
                         st.plotly_chart(scatter_fig, use_container_width=True)
                     st.markdown('</div>', unsafe_allow_html=True)
 
+
         else:
-            # No results after all filters - enhanced feedback only
+
+            # No results found - enhanced feedback ONLY (no welcome message)
+
             st.warning("🚫 **No apartments match your criteria**")
 
             if 'apartment_routes' in st.session_state and st.session_state.apartment_routes:
-                st.info(f"💡 **Try**: Increasing max travel time above {filters['max_travel_time']} minutes")
+
+                st.info(
+                    f"💡 **Try**: Increasing max travel time above {st.session_state.current_filters['max_travel_time']} minutes")
+
                 available_times = [route.get('total_time', 0) for route in st.session_state.apartment_routes.values()]
+
                 if available_times:
                     min_time = min(available_times)
+
                     st.info(f"📊 **Available options**: Shortest commute is {min_time:.1f} minutes")
+
             else:
+
                 st.info("💡 **Try**: Adjusting your room count, budget, or date range")
 
-    else:
-        # No apartments found at all - enhanced feedback only
-        st.warning("🚫 **No apartments match your criteria**")
-        st.info("💡 **Try**: Adjusting your room count, budget, or date range")
+            # CRITICAL: Stop execution here - don't continue to welcome message
 
-elif not st.session_state.get('filter_applied', False):
-    # Only show welcome when NO search has been performed yet
+            st.stop()
+
+else:
+    # No filters applied yet - show welcome message ONLY
     st.markdown("""
     <div class="info-box">
         <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
@@ -1473,10 +1482,6 @@ elif not st.session_state.get('filter_applied', False):
         </ul>
     </div>
     """, unsafe_allow_html=True)
-# IMPORTANT: Add this line to prevent any code after this from running
-else:
-    # This ensures nothing else displays when filters are applied but no results found
-    pass
 
 
 
