@@ -1146,315 +1146,260 @@ if st.session_state.filter_applied and st.session_state.needs_route_calculation:
 # RESULTS DISPLAY
 # ==========================================
 
-# ==========================================
-# RESULTS DISPLAY - CORRECTED LOGIC
-# ==========================================
+# This logic now correctly handles all three states:
+# 1. Filters applied with results
+# 2. Filters applied with NO results
+# 3. No filters applied yet (initial load / refresh)
 
-if st.session_state.filter_applied:
-    # User has applied filters - show results or enhanced feedback
-    if not st.session_state.filtered_df.empty:
-        # Show results - ACTUAL IMPLEMENTATION
-        filters = st.session_state.current_filters
-        filtered_df = st.session_state.filtered_df.copy()
-        apartment_routes = st.session_state.apartment_routes
-        new_today_listings = st.session_state.get('new_today_listings', set())
+if st.session_state.get('filter_applied', False):
+    # This block runs ONLY after the "Find Apartments" button has been clicked.
+    # It will never show the welcome message.
 
-        # Apply date filter
-        if 'created_at_date' in filtered_df.columns:
-            start_date, end_date = filters['date_range']
-            filtered_df = filtered_df[
-                (filtered_df['created_at_date'] >= start_date) &
-                (filtered_df['created_at_date'] <= end_date)
-                ]
+    # Start with the dataframe that has been pre-filtered by price and rooms
+    df = st.session_state.filtered_df.copy()
+    apartment_routes = st.session_state.apartment_routes
+    filters = st.session_state.current_filters
+    new_today_listings = st.session_state.get('new_today_listings', set())
 
-        # Filter by travel time using optimized route data
-        if apartment_routes:
-            valid_apartments = [route['listing_id'] for route in apartment_routes.values()
-                                if route.get('total_time', float('inf')) <= filters['max_travel_time']]
-            if 'listing_id' in filtered_df.columns:
-                filtered_df = filtered_df[filtered_df['listing_id'].isin(valid_apartments)]
-            else:
-                filtered_df = filtered_df[filtered_df.index.isin(valid_apartments)]
+    # Apply the final travel time and date filters to get the final list
+    if apartment_routes:
+        valid_apartments = [route['listing_id'] for route in apartment_routes.values()
+                            if route.get('total_time', float('inf')) <= filters['max_travel_time']]
+        if 'listing_id' in df.columns:
+            df = df[df['listing_id'].isin(valid_apartments)]
+        else:
+            df = df[df.index.isin(valid_apartments)]
 
-        if not filtered_df.empty:
-            # Modern metrics display
-            st.markdown("## 📊 Overview")
+    if 'created_at_date' in df.columns:
+        start_date, end_date = filters['date_range']
+        df = df[
+            (df['created_at_date'] >= start_date) &
+            (df['created_at_date'] <= end_date)
+            ]
 
-            col1, col2, col3, col4 = st.columns(4)
+    final_filtered_df = df
 
-            with col1:
-                total_count = len(filtered_df)
-                st.markdown(f"""
-                <div class="metric-card">
-                    <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Total Apartments</div>
-                    <div style="font-size: 2rem; font-weight: 700; color: #2d3748; margin: 0.5rem 0;">{total_count}</div>
-                </div>
-                """, unsafe_allow_html=True)
+    if not final_filtered_df.empty:
+        # STATE 1: RESULTS FOUND - Display metrics, map, list, and analytics
 
-            with col2:
-                today_count = len(filtered_df[filtered_df.get('is_new_today', False) == True])
-                st.markdown(f"""
-                <div class="metric-card">
-                    <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">New Today</div>
-                    <div style="font-size: 2rem; font-weight: 700; color: #f59e0b; margin: 0.5rem 0;">{today_count}</div>
-                </div>
-                """, unsafe_allow_html=True)
+        st.markdown("## 📊 Overview")
+        col1, col2, col3, col4 = st.columns(4)
 
-            with col3:
-                avg_price = int(filtered_df['price'].mean())
-                st.markdown(f"""
-                <div class="metric-card">
-                    <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Average Price</div>
-                    <div style="font-size: 2rem; font-weight: 700; color: #10b981; margin: 0.5rem 0;">{avg_price:,} PLN</div>
-                </div>
-                """, unsafe_allow_html=True)
-
-            with col4:
-                if apartment_routes:
-                    apt_ids = filtered_df[
-                        'listing_id'].tolist() if 'listing_id' in filtered_df.columns else filtered_df.index.tolist()
-                    travel_times = [route.get('total_time', 0) for route in apartment_routes.values()
-                                    if route['listing_id'] in apt_ids]
-                    if travel_times:
-                        avg_travel = int(np.mean(travel_times))
-                        st.markdown(f"""
-                        <div class="metric-card">
-                            <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Avg Travel Time</div>
-                            <div style="font-size: 2rem; font-weight: 700; color: #8b5cf6; margin: 0.5rem 0;">{avg_travel} min</div>
-                        </div>
-                        """, unsafe_allow_html=True)
-
-            # Filter summary
-            start_date, end_date = filters['date_range']
-            selected_rooms_clean = [int(room) for room in filters['selected_rooms']]
+        with col1:
+            total_count = len(final_filtered_df)
             st.markdown(f"""
-            <div class="info-box">
-                <strong>📅 Active Filters:</strong> 
-                Rooms: {selected_rooms_clean} | 
-                Max Price: {filters['max_price']:,} PLN | 
-                Max Travel: {filters['max_travel_time']} min | 
-                Date Range: {start_date} to {end_date}
+            <div class="metric-card">
+                <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Total Apartments</div>
+                <div style="font-size: 2rem; font-weight: 700; color: #2d3748; margin: 0.5rem 0;">{total_count}</div>
             </div>
             """, unsafe_allow_html=True)
 
-            # Modern tabs for different views
-            tab1, tab2, tab3 = st.tabs(["🗺️ Map View", "📋 List View", "📊 Analytics"])
+        with col2:
+            today_count = len(final_filtered_df[final_filtered_df.get('is_new_today', False) == True])
+            st.markdown(f"""
+            <div class="metric-card">
+                <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">New Today</div>
+                <div style="font-size: 2rem; font-weight: 700; color: #f59e0b; margin: 0.5rem 0;">{today_count}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
-            with tab1:
-                st.markdown("### 🗺️ Apartment Locations")
+        with col3:
+            avg_price = int(final_filtered_df['price'].mean())
+            st.markdown(f"""
+            <div class="metric-card">
+                <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Average Price</div>
+                <div style="font-size: 2rem; font-weight: 700; color: #10b981; margin: 0.5rem 0;">{avg_price:,} PLN</div>
+            </div>
+            """, unsafe_allow_html=True)
 
-                # Create or update map visualization
-                if st.session_state.map_needs_update or st.session_state.map_data is None:
-                    map_data = analyzer.create_map_visualization(filtered_df, apartment_routes, new_today_listings)
-
-                    # Add temporary location marker if exists (from address checker)
-                    if st.session_state.temp_location and map_data is not None:
-                        temp_loc = st.session_state.temp_location
-                        lat, lon = temp_loc['coordinates']
-
-                        if temp_loc['feasible']:
-                            color = '#AEC6CF'
-                            icon = 'check'
-                            popup_text = f"✅ FEASIBLE<br>{temp_loc['address']}<br>🕐 {temp_loc['travel_time']:.1f} min to work"
-                        else:
-                            color = 'red'
-                            icon = 'remove'
-                            popup_text = f"❌ NOT FEASIBLE<br>{temp_loc['address']}<br>{temp_loc['reason']}"
-
-                        folium.Marker(
-                            [lat, lon],
-                            popup=folium.Popup(popup_text, max_width=300),
-                            icon=folium.Icon(color=color, icon=icon),
-                            tooltip="Address Check Result"
-                        ).add_to(map_data)
-
-                    st.session_state.map_data = map_data
-                    st.session_state.map_needs_update = False
-
-                if st.session_state.map_data is not None:
-                    st_folium(
-                        st.session_state.map_data,
-                        width=None,
-                        height=900,
-                        returned_objects=[],
-                        key="main_map"
-                    )
-
-            with tab2:
-                st.markdown("### 📋 Apartment Details")
-
-                # Sort apartments: new today first, then by price
-                display_df = filtered_df.copy()
-                display_df = display_df.sort_values(['is_new_today', 'price'], ascending=[False, True])
-
-                if 'listing_id' in display_df.columns:
-                    for _, apartment in display_df.iterrows():
-                        listing_id = apartment['listing_id']
-                        route = apartment_routes.get(listing_id, {})
-                        travel_time = f"{route.get('total_time', 0):.1f}" if route else "N/A"
-
-                        is_new = apartment.get('is_new_today', False)
-                        card_class = "apartment-card new-today" if is_new else "apartment-card"
-
-                        if is_new:
-                            status_emoji = "🆕"
-                            days_info = "New Today!"
-                        else:
-                            status_emoji = "📅"
-                            days_ago = apartment.get('days_since_created', 0)
-                            days_info = f"{days_ago} days ago"
-
-                        location = get_location_display(apartment)
-
-                        created_date = "Unknown"
-                        if 'created_at' in apartment and pd.notna(apartment['created_at']):
-                            created_date = apartment['created_at'].strftime('%Y-%m-%d')
-
-                        col1, col2 = st.columns([4, 1])
-
-                        with col1:
-                            st.markdown(f"""
-                            <div class="{card_class}">
-                                <h3>{status_emoji} {apartment['rooms']} rooms - {apartment.get('area', 'N/A')}m²</h3>
-                                <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>📍 Location:</strong> {location}</div>
-                                <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>💰 Price:</strong> {apartment['price']:,} PLN/month</div>
-                                <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>🚌 Travel Time:</strong> {travel_time} min</div>
-                                <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>📅 Created:</strong> {created_date} ({days_info})</div>
-                                <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>🚶 Route:</strong> Walk {route.get('walking_time_from_apt', 0):.1f}min → 
-                                🚌 Transit {route.get('transit_time', 0):.0f}min → 
-                                🚶 Walk {route.get('walking_time_to_office', 0):.1f}min</div>
-                            </div>
-                            """, unsafe_allow_html=True)
-
-                        with col2:
-                            if 'url' in apartment and apartment['url']:
-                                st.markdown("<br><br>", unsafe_allow_html=True)
-                                st.link_button("🏠 View Listing", apartment['url'], use_container_width=True)
-
-            with tab3:
-                st.markdown("### 📊 Market Analytics")
-
-                # Enhanced KPI Cards
-                st.markdown("#### 📈 Key Performance Indicators")
-                kpi_col1, kpi_col2, kpi_col3, kpi_col4 = st.columns(4)
-
-                with kpi_col1:
-                    avg_price_per_sqm = filtered_df['price'].sum() / filtered_df['area'].sum() if filtered_df[
-                                                                                                      'area'].sum() > 0 else 0
+        with col4:
+            if apartment_routes:
+                apt_ids = final_filtered_df[
+                    'listing_id'].tolist() if 'listing_id' in final_filtered_df.columns else final_filtered_df.index.tolist()
+                travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if
+                                route['listing_id'] in apt_ids]
+                if travel_times:
+                    avg_travel = int(np.mean(travel_times))
                     st.markdown(f"""
-                    <div class="kpi-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Price/m²</div>
-                        <div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_price_per_sqm:.0f} PLN</div>
+                    <div class="metric-card">
+                        <div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Avg Travel Time</div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #8b5cf6; margin: 0.5rem 0;">{avg_travel} min</div>
                     </div>
                     """, unsafe_allow_html=True)
 
-                with kpi_col2:
-                    if apartment_routes:
-                        avg_commute = np.mean([route.get('total_time', 0) for route in apartment_routes.values()])
+        start_date, end_date = filters['date_range']
+        selected_rooms_clean = [int(room) for room in filters['selected_rooms']]
+        st.markdown(f"""
+        <div class="info-box">
+            <strong>📅 Active Filters:</strong> 
+            Rooms: {selected_rooms_clean} | Max Price: {filters['max_price']:,} PLN | Max Travel: {filters['max_travel_time']} min | Date Range: {start_date} to {end_date}
+        </div>
+        """, unsafe_allow_html=True)
+
+        tab1, tab2, tab3 = st.tabs(["🗺️ Map View", "📋 List View", "📊 Analytics"])
+
+        with tab1:
+            st.markdown("### 🗺️ Apartment Locations")
+            if st.session_state.map_needs_update or st.session_state.map_data is None:
+                map_data = analyzer.create_map_visualization(final_filtered_df, apartment_routes, new_today_listings)
+                if st.session_state.temp_location and map_data is not None:
+                    temp_loc = st.session_state.temp_location
+                    lat, lon = temp_loc['coordinates']
+                    if temp_loc['feasible']:
+                        color, icon, popup_text = '#AEC6CF', 'check', f"✅ FEASIBLE<br>{temp_loc['address']}<br>🕐 {temp_loc['travel_time']:.1f} min to work"
+                    else:
+                        color, icon, popup_text = 'red', 'remove', f"❌ NOT FEASIBLE<br>{temp_loc['address']}<br>{temp_loc['reason']}"
+                    folium.Marker([lat, lon], popup=folium.Popup(popup_text, max_width=300),
+                                  icon=folium.Icon(color=color, icon=icon), tooltip="Address Check Result").add_to(
+                        map_data)
+                st.session_state.map_data = map_data
+                st.session_state.map_needs_update = False
+            if st.session_state.map_data is not None:
+                st_folium(st.session_state.map_data, width=None, height=900, returned_objects=[], key="main_map")
+
+        with tab2:
+            st.markdown("### 📋 Apartment Details")
+            display_df = final_filtered_df.sort_values(['is_new_today', 'price'], ascending=[False, True])
+            if 'listing_id' in display_df.columns:
+                for _, apartment in display_df.iterrows():
+                    listing_id = apartment['listing_id']
+                    route = apartment_routes.get(listing_id, {})
+                    travel_time = f"{route.get('total_time', 0):.1f}" if route else "N/A"
+                    is_new, card_class = (True, "apartment-card new-today") if apartment.get('is_new_today',
+                                                                                             False) else (
+                    False, "apartment-card")
+                    status_emoji, days_info = ("🆕", "New Today!") if is_new else (
+                    "📅", f"{apartment.get('days_since_created', 0)} days ago")
+                    location = get_location_display(apartment)
+                    created_date = apartment['created_at'].strftime(
+                        '%Y-%m-%d') if 'created_at' in apartment and pd.notna(apartment['created_at']) else "Unknown"
+
+                    col1, col2 = st.columns([4, 1])
+                    with col1:
                         st.markdown(f"""
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Commute</div>
-                            <div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_commute:.1f} min</div>
+                        <div class="{card_class}">
+                            <h3>{status_emoji} {apartment['rooms']} rooms - {apartment.get('area', 'N/A')}m²</h3>
+                            <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>📍 Location:</strong> {location}</div>
+                            <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>💰 Price:</strong> {apartment['price']:,} PLN/month</div>
+                            <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>🚌 Travel Time:</strong> {travel_time} min</div>
+                            <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>📅 Created:</strong> {created_date} ({days_info})</div>
+                            <div style="color: #475569; margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>🚶 Route:</strong> Walk {route.get('walking_time_from_apt', 0):.1f}min → 🚌 Transit {route.get('transit_time', 0):.0f}min → 🚶 Walk {route.get('walking_time_to_office', 0):.1f}min</div>
                         </div>
                         """, unsafe_allow_html=True)
+                    with col2:
+                        if 'url' in apartment and apartment['url']:
+                            st.markdown("<br><br>", unsafe_allow_html=True)
+                            st.link_button("🏠 View Listing", apartment['url'], use_container_width=True)
 
-                with kpi_col3:
-                    median_price = filtered_df['price'].median()
-                    st.markdown(f"""
-                    <div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Median Price</div>
-                        <div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{median_price:,.0f} PLN</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+        with tab3:
+            st.markdown("### 📊 Market Analytics")
+            st.markdown("#### 📈 Key Performance Indicators")
+            kpi_col1, kpi_col2, kpi_col3, kpi_col4 = st.columns(4)
+            with kpi_col1:
+                avg_price_per_sqm = final_filtered_df['price'].sum() / final_filtered_df['area'].sum() if \
+                final_filtered_df['area'].sum() > 0 else 0
+                st.markdown(
+                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Price/m²</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_price_per_sqm:.0f} PLN</div></div>""",
+                    unsafe_allow_html=True)
+            with kpi_col2:
+                if apartment_routes:
+                    avg_commute = np.mean([route.get('total_time', 0) for route in apartment_routes.values()])
+                    st.markdown(
+                        f"""<div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_commute:.1f} min</div></div>""",
+                        unsafe_allow_html=True)
+            with kpi_col3:
+                median_price = final_filtered_df['price'].median()
+                st.markdown(
+                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Median Price</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{median_price:,.0f} PLN</div></div>""",
+                    unsafe_allow_html=True)
+            with kpi_col4:
+                if apartment_routes:
+                    best_commute = min([route.get('total_time', 0) for route in apartment_routes.values()])
+                    st.markdown(
+                        f"""<div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Best Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{best_commute:.1f} min</div></div>""",
+                        unsafe_allow_html=True)
 
-                with kpi_col4:
-                    if apartment_routes:
-                        best_commute = min([route.get('total_time', 0) for route in apartment_routes.values()])
-                        st.markdown(f"""
-                        <div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Best Commute</div>
-                            <div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{best_commute:.1f} min</div>
-                        </div>
-                        """, unsafe_allow_html=True)
-
-                # Enhanced Charts
-                chart_col1, chart_col2 = st.columns(2)
-
-                with chart_col1:
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    price_fig = create_enhanced_price_chart(filtered_df)
-                    st.plotly_chart(price_fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
-                with chart_col2:
-                    if apartment_routes:
-                        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                        apt_ids = filtered_df[
-                            'listing_id'].tolist() if 'listing_id' in filtered_df.columns else filtered_df.index.tolist()
-                        travel_times = [route.get('total_time', 0) for route in apartment_routes.values()
-                                        if route['listing_id'] in apt_ids]
-
-                        if travel_times:
-                            travel_fig = create_enhanced_travel_chart(travel_times)
-                            st.plotly_chart(travel_fig, use_container_width=True)
-                        st.markdown('</div>', unsafe_allow_html=True)
-
-                # Full-width enhanced charts
-                if 'created_at_date' in filtered_df.columns:
-                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    date_counts = filtered_df['created_at_date'].value_counts().sort_index()
-                    timeline_fig = create_enhanced_timeline_chart(date_counts)
-                    st.plotly_chart(timeline_fig, use_container_width=True)
-                    st.markdown('</div>', unsafe_allow_html=True)
-
+            chart_col1, chart_col2 = st.columns(2)
+            with chart_col1:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                st.plotly_chart(create_enhanced_price_chart(final_filtered_df), use_container_width=True)
+                st.markdown('</div>', unsafe_allow_html=True)
+            with chart_col2:
                 if apartment_routes:
                     st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                    scatter_data = []
-                    if 'listing_id' in filtered_df.columns:
-                        for _, apartment in filtered_df.iterrows():
-                            listing_id = apartment['listing_id']
-                            route = apartment_routes.get(listing_id, {})
-                            if route:
-                                scatter_data.append({
-                                    'travel_time': route.get('total_time', 0),
-                                    'price': apartment['price'],
-                                    'area': apartment.get('area', 50)
-                                })
-
-                    if scatter_data:
-                        scatter_df = pd.DataFrame(scatter_data)
-                        scatter_fig = create_enhanced_scatter_chart(scatter_df)
-                        st.plotly_chart(scatter_fig, use_container_width=True)
+                    apt_ids = final_filtered_df[
+                        'listing_id'].tolist() if 'listing_id' in final_filtered_df.columns else final_filtered_df.index.tolist()
+                    travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if
+                                    route['listing_id'] in apt_ids]
+                    if travel_times:
+                        st.plotly_chart(create_enhanced_travel_chart(travel_times), use_container_width=True)
                     st.markdown('</div>', unsafe_allow_html=True)
 
+            if 'created_at_date' in final_filtered_df.columns:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                st.plotly_chart(
+                    create_enhanced_timeline_chart(final_filtered_df['created_at_date'].value_counts().sort_index()),
+                    use_container_width=True)
+                st.markdown('</div>', unsafe_allow_html=True)
 
+            if apartment_routes:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                scatter_data = [
+                    {'travel_time': route.get('total_time', 0), 'price': apt['price'], 'area': apt.get('area', 50)} for
+                    _, apt in final_filtered_df.iterrows() if
+                    (route := apartment_routes.get(apt['listing_id'] if 'listing_id' in apt else apt.name))]
+                if scatter_data:
+                    st.plotly_chart(create_enhanced_scatter_chart(pd.DataFrame(scatter_data)), use_container_width=True)
+                st.markdown('</div>', unsafe_allow_html=True)
 
+    else:
+        # STATE 2: NO RESULTS FOUND - Display enhanced feedback ONLY
+        st.warning("🚫 **No apartments match your criteria**")
 
-        else:
+        # Check if the travel time filter was the issue
+        pre_travel_filter_df = st.session_state.filtered_df.copy()
+        if 'created_at_date' in pre_travel_filter_df.columns:
+            start_date, end_date = filters['date_range']
+            pre_travel_filter_df = pre_travel_filter_df[(pre_travel_filter_df['created_at_date'] >= start_date) & (
+                        pre_travel_filter_df['created_at_date'] <= end_date)]
 
-            # No results found - enhanced feedback ONLY (no welcome message)
-
-            st.warning("🚫 **No apartments match your criteria**")
-
-            if 'apartment_routes' in st.session_state and st.session_state.apartment_routes:
-
-                st.info(
-                    f"💡 **Try**: Increasing max travel time above {st.session_state.current_filters['max_travel_time']} minutes")
-
-                available_times = [route.get('total_time', 0) for route in st.session_state.apartment_routes.values()]
-
+        if not pre_travel_filter_df.empty:
+            # All apartments were filtered out by the travel time constraint
+            st.info(f"💡 **Try**: Increasing max travel time above {filters['max_travel_time']} minutes.")
+            if apartment_routes:
+                available_times = [route.get('total_time', 0) for route in apartment_routes.values()]
                 if available_times:
                     min_time = min(available_times)
+                    st.info(
+                        f"📊 **Available options**: The shortest commute found for your other criteria is {min_time:.1f} minutes.")
+        else:
+            # The price, rooms, or date filter was the issue
+            st.info("💡 **Try**: Adjusting your room count, budget, or date range.")
 
-                    st.info(f"📊 **Available options**: Shortest commute is {min_time:.1f} minutes")
+else:
+    # STATE 3: INITIAL LOAD / REFRESH - Display welcome message ONLY
+    # This block runs because 'filter_applied' is False by default.
+    st.markdown("""
+    <div class="info-box" style="text-align: left; padding: 2rem; border: none; background: #f8f9fa;">
+        <h3 style="font-weight: 700; color: #343a40;">🏠 Welcome to the Warsaw Apartment Hunter!</h3>
+        <p style="color: #6c757d; font-size: 1.1rem;">Use the filters in the sidebar to find your ideal apartment based on your commute and preferences.</p>
 
-            else:
+        <h4 style="font-weight: 600; color: #495057; margin-top: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem;">Getting Started</h4>
+        <ul style="list-style-type: '✅'; padding-left: 2rem; color: #495057;">
+            <li style="margin-bottom: 0.5rem;">Set your desired <strong>room count</strong> and <strong>max price</strong>.</li>
+            <li style="margin-bottom: 0.5rem;">Define your maximum <strong>travel time</strong> to the office.</li>
+            <li style="margin-bottom: 0.5rem;">Select a <strong>date range</strong> for new listings.</li>
+            <li style="margin-bottom: 0.5rem;">Click <strong>"Find Apartments"</strong> to run the optimization.</li>
+        </ul>
 
-                st.info("💡 **Try**: Adjusting your room count, budget, or date range")
-
-            # CRITICAL: Stop execution here - don't continue to welcome message
-
-            st.stop()
+        <h4 style="font-weight: 600; color: #495057; margin-top: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem;">Extra Tools</h4>
+        <ul style="list-style-type: '➡️'; padding-left: 2rem; color: #495057;">
+            <li style="margin-bottom: 0.5rem;">Use the <strong>Quick Address Check</strong> to analyze any location.</li>
+            <li style="margin-bottom: 0.5rem;">Use the <strong>Data Management</strong> tools to refresh apartment data.</li>
+        </ul>
+        <p style="text-align: center; margin-top: 2rem; color: #6c757d;"><em>This system uses pre-optimized transport data for fast performance.</em></p>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
