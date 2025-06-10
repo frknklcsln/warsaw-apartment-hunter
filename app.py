@@ -96,12 +96,13 @@ st.markdown("""
         padding: 2rem;
         border-radius: 9px;
         text-align: center;
-        margin-bottom: 1.1rem;
+        margin-top: -3rem;
+        margin-bottom: 2rem;
         box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     }
     
     .main-header h1 {
-        font-size: 1.1rem;
+        font-size: 2.5rem;
         font-weight: 700;
         margin: 0;
         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
