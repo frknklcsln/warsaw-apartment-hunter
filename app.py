@@ -82,13 +82,13 @@ CONFIG = {
 
 st.markdown("""
 <style>
-    /* Main container styling for better layout */
+    /* Main container styling */
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
         max-width: 100%;
     }
-    
+
     /* Header styling with gradient background */
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -100,34 +100,27 @@ st.markdown("""
         margin-bottom: 2.5rem;
         box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     }
-    
+
     .main-header h1 {
         font-size: 2.5rem;
         font-weight: 700;
         margin: 0;
         text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
-    
-    /* Chart container styling with dark theme for analytics */
+
+    /* MODERN CHART CONTAINER STYLING */
     .chart-container {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        background: #1E1E2D; /* A deep, dark blue-grey */
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 15px;
-        padding: 2rem;
-        margin: 1rem 0;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-    
-    /* KPI card styling for metrics display */
-    .kpi-card {
         padding: 1.5rem;
-        border-radius: 12px;
-        text-align: center;
-        color: white;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
     }
-    
-    /* Metric cards styling with hover effects */
+
+    /* Rest of your existing CSS (metric cards, etc.) */
     .metric-card {
         background: white;
         border-radius: 12px;
@@ -137,34 +130,10 @@ st.markdown("""
         margin-bottom: 1rem;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    
     .metric-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     }
-    
-    /* Filter container styling for sidebar */
-    .filter-container {
-        background: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        border: 1px solid #e2e8f0;
-    }
-    
-    /* Info box styling for notifications */
-    .info-box {
-        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-        border: 1px solid #bbdefb;
-        border-radius: 8px;
-        padding: 1rem;
-        margin: 1rem 0;
-        color: #1565c0;
-        font-weight: 500;
-    }
-    
-    /* Apartment card styling for list view */
     .apartment-card {
         background: white;
         border-radius: 12px;
@@ -174,24 +143,17 @@ st.markdown("""
         border: 1px solid #e2e8f0;
         transition: all 0.2s ease;
     }
-    
     .apartment-card:hover {
         box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         transform: translateY(-1px);
     }
-    
-    /* Special styling for new listings */
     .apartment-card.new-today {
         border-left: 4px solid #f59e0b;
         background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
     }
-    
-    /* Hide Streamlit branding for cleaner look */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 # ==========================================
 # UTILITY FUNCTIONS
@@ -684,7 +646,7 @@ def clear_all_caches_and_reset():
 # CHART CREATION FUNCTIONS (AESTHETIC & BUG-FIX UPDATE)
 # ==========================================
 
-# Define a modern, pastel color palette for the charts, perfect for a dark background
+# Define a modern, pastel color palette for the charts
 PASTEL_GRADIENT = {
     'price_hist': ['#a1c4fd', '#c2e9fb'],  # Sky blue gradient
     'travel_hist': ['#ffc3a0', '#ffafbd'],  # Peach-pink gradient
