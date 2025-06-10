@@ -1445,7 +1445,7 @@ if st.session_state.filter_applied:
         st.warning("🚫 **No apartments match your criteria**")
         st.info("💡 **Try**: Adjusting your room count, budget, or date range")
 
-elif not st.session_state.get('filter_applied', False):
+elif st.session_state.get('filter_applied', False):
     # Only show welcome when NO search has been performed yet
     st.markdown("""
     <div class="info-box">
