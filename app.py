@@ -1309,30 +1309,27 @@ if st.session_state.get('filter_applied', False):
         else:
             st.info("💡 **Try**: Adjusting your room count, budget, or date range.")
 
-else:
-    # STATE 3: INITIAL LOAD / REFRESH - Display welcome message ONLY
-    # This block runs because 'filter_applied' is False by default.
-    st.markdown("""
-    <div class="info-box" style="text-align: left; padding: 2rem; border: none; background: #f8f9fa;">
-        <h3 style="font-weight: 700; color: #343a40;">🏠 Welcome to the Warsaw Apartment Hunter!</h3>
-        <p style="color: #6c757d; font-size: 1.1rem;">Use the filters in the sidebar to find your ideal apartment based on your commute and preferences.</p>
+if not st.session_state.get('filter_applied', False):
+    st.markdown(
+        """
+# 🏠 Welcome to the Warsaw Apartment Hunter!
 
-        <h4 style="font-weight: 600; color: #495057; margin-top: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem;">Getting Started</h4>
-        <ul style="list-style-type: '✅'; padding-left: 2rem; color: #495057;">
-            <li style="margin-bottom: 0.5rem;">Set your desired <strong>room count</strong> and <strong>max price</strong>.</li>
-            <li style="margin-bottom: 0.5rem;">Define your maximum <strong>travel time</strong> to the office.</li>
-            <li style="margin-bottom: 0.5rem;">Select a <strong>date range</strong> for new listings.</li>
-            <li style="margin-bottom: 0.5rem;">Click <strong>"Find Apartments"</strong> to run the optimization.</li>
-        </ul>
+Use the filters in the sidebar to find your ideal apartment based on your commute and preferences.
 
-        <h4 style="font-weight: 600; color: #495057; margin-top: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem;">Extra Tools</h4>
-        <ul style="list-style-type: '➡️'; padding-left: 2rem; color: #495057;">
-            <li style="margin-bottom: 0.5rem;">Use the <strong>Quick Address Check</strong> to analyze any location.</li>
-            <li style="margin-bottom: 0.5rem;">Use the <strong>Data Management</strong> tools to refresh apartment data.</li>
-        </ul>
-        <p style="text-align: center; margin-top: 2rem; color: #6c757d;"><em>This system uses pre-optimized transport data for fast performance.</em></p>
-    </div>
-    """, unsafe_allow_html=True)
+### Getting Started
+- Set your desired **room count** and **max price**
+- Define your maximum **travel time** to the office
+- Select a **date range** for new listings
+- Click **"Find Apartments"** to run the optimization
+
+### Extra Tools
+- Use the **Quick Address Check** to analyze any location
+- Use the **Data Management** tools to refresh apartment data
+
+*This system uses pre-optimized transport data for fast performance.*
+        """
+    )
+
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
