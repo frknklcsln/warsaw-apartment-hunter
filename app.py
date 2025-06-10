@@ -681,24 +681,14 @@ def clear_all_caches_and_reset():
 
 
 # ==========================================
-# CHART CREATION FUNCTIONS (AESTHETIC UPDATE)
+# CHART CREATION FUNCTIONS (AESTHETIC & BUG-FIX UPDATE)
 # ==========================================
-
-# Define a modern, pastel color palette for the charts
-PASTEL_COLORS = {
-    'price': '#a1c4fd',  # Bubblegum Sky
-    'travel': '#c2e9fb',  # Bubblegum Sky
-    'timeline_fill': 'rgba(168, 237, 234, 0.3)',  # Pastel Ocean
-    'timeline_line': '#a8edea',  # Pastel Ocean
-    'scatter_scale': 'Plasma'  # A beautiful gradient color scale
-}
-
 
 def create_price_distribution_chart(df):
     """Creates a modern, styled histogram for price distribution with pastel colors."""
     if df.empty or 'price' not in df.columns: return go.Figure()
 
-    fig = px.histogram(df, x="price", nbins=25, title="💰 Price Distribution")
+    fig = px.histogram(df, x="price", nbins=30, title="💰 Price Distribution")
     fig.update_layout(
         title_font_size=22, title_x=0.5,
         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
@@ -707,19 +697,23 @@ def create_price_distribution_chart(df):
         bargap=0.1
     )
     fig.update_traces(
-        marker_color=PASTEL_COLORS['price'],
+        marker_color='#a1c4fd',  # Pastel blue
         marker_line=dict(width=1.5, color='#1a1a2e')
     )
     return fig
 
 
 def create_travel_time_distribution_chart(df, apartment_routes):
-    """Creates a modern, styled histogram for travel time distribution with pastel colors."""
-    if df.empty or not apartment_routes: return go.Figure()
+    """Creates a modern, styled histogram for travel time distribution. (BUG FIXED)"""
+    if df.empty or not apartment_routes or 'listing_id' not in df.columns: return go.Figure()
 
-    listing_ids = df.index
-    travel_times = [route.get('total_time', 0) for listing_id, route in apartment_routes.items() if
-                    listing_id in listing_ids]
+    # BUG FIX: Ensure we only use travel times for apartments in the *final* filtered list.
+    valid_listing_ids = set(df['listing_id'])
+    travel_times = [
+        route.get('total_time', 0)
+        for listing_id, route in apartment_routes.items()
+        if listing_id in valid_listing_ids
+    ]
     if not travel_times: return go.Figure()
 
     fig = px.histogram(x=travel_times, nbins=20, title="🚌 Travel Time Distribution")
@@ -731,19 +725,21 @@ def create_travel_time_distribution_chart(df, apartment_routes):
         bargap=0.1
     )
     fig.update_traces(
-        marker_color=PASTEL_COLORS['travel'],
+        marker_color='#c2e9fb',  # Pastel sky blue
         marker_line=dict(width=1.5, color='#1a1a2e')
     )
     return fig
 
 
 def create_price_vs_commute_scatter(df, apartment_routes):
-    """Creates a modern scatter plot of Price vs. Travel Time, encoding area and rooms."""
-    if df.empty or not apartment_routes: return go.Figure()
+    """Creates a modern scatter plot of Price vs. Travel Time. (BUG FIXED)"""
+    if df.empty or not apartment_routes or 'listing_id' not in df.columns: return go.Figure()
 
     scatter_data = []
-    for index, apartment in df.iterrows():
-        route = apartment_routes.get(index)
+    # BUG FIX: Use the 'listing_id' column to reliably look up the correct route.
+    for _, apartment in df.iterrows():
+        listing_id = apartment['listing_id']
+        route = apartment_routes.get(listing_id)
         if route:
             scatter_data.append({
                 'travel_time': route.get('total_time', 0),
@@ -785,8 +781,8 @@ def create_listings_timeline_chart(df):
         showlegend=False
     )
     fig.update_traces(
-        line=dict(color=PASTEL_COLORS['timeline_line'], width=2.5),
-        fillcolor=PASTEL_COLORS['timeline_fill'],
+        line=dict(color='#a8edea', width=2.5),
+        fillcolor='rgba(168, 237, 234, 0.3)',
         fill='tozeroy'
     )
     return fig
@@ -1240,46 +1236,30 @@ if st.session_state.get('filter_applied', False):
                             st.link_button("🏠 View Listing", apartment['url'], use_container_width=True)
         with tab3:
             st.markdown("### 📊 Market Analytics")
-            st.markdown("#### 📈 Key Performance Indicators")
-            kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-            with kpi1:
-                avg_price_m2 = final_filtered_df['price'].sum() / final_filtered_df['area'].sum() if final_filtered_df[
-                                                                                                         'area'].sum() > 0 else 0
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Price/m²</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_price_m2:.0f} PLN</div></div>""",
-                    unsafe_allow_html=True)
-            with kpi2:
-                avg_comm = np.mean([route.get('total_time', 0) for route in apartment_routes.values()])
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_comm:.1f} min</div></div>""",
-                    unsafe_allow_html=True)
-            with kpi3:
-                median_p = final_filtered_df['price'].median()
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Median Price</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{median_p:,.0f} PLN</div></div>""",
-                    unsafe_allow_html=True)
-            with kpi4:
-                best_comm = min([route.get('total_time', 0) for route in apartment_routes.values()])
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Best Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{best_comm:.1f} min</div></div>""",
-                    unsafe_allow_html=True)
 
-            # Calling the new aesthetic chart functions
-            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.plotly_chart(create_price_distribution_chart(final_filtered_df), use_container_width=True,
-                            key="price_dist")
-            st.markdown('</div>', unsafe_allow_html=True)
-            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.plotly_chart(create_travel_time_distribution_chart(final_filtered_df, apartment_routes),
-                            use_container_width=True, key="travel_dist")
-            st.markdown('</div>', unsafe_allow_html=True)
+            # Create two columns for the main distribution charts
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                st.plotly_chart(create_price_distribution_chart(final_filtered_df), use_container_width=True,
+                                key="price_dist")
+                st.markdown('</div>', unsafe_allow_html=True)
+            with col2:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                st.plotly_chart(create_travel_time_distribution_chart(final_filtered_df, apartment_routes),
+                                use_container_width=True, key="travel_dist")
+                st.markdown('</div>', unsafe_allow_html=True)
+
+            # Display the more detailed, full-width charts below
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
             st.plotly_chart(create_price_vs_commute_scatter(final_filtered_df, apartment_routes),
                             use_container_width=True, key="price_vs_commute")
             st.markdown('</div>', unsafe_allow_html=True)
+
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
             st.plotly_chart(create_listings_timeline_chart(final_filtered_df), use_container_width=True, key="timeline")
             st.markdown('</div>', unsafe_allow_html=True)
+
 
     else:
         # STATE 2: NO RESULTS FOUND - Display enhanced feedback ONLY
@@ -1307,7 +1287,7 @@ else:
     # This block runs because 'filter_applied' is False by default.
     st.markdown("""
             <div class="info-box">
-                <h3>ðŸ  Welcome to Warsaw Apartment Hunter!</h3>
+                <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
                 <p>Use the filters in the sidebar to find apartments that match your criteria and commute preferences.</p>
                 <p><strong>Getting Started:</strong></p>
                 <ul>
