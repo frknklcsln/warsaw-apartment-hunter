@@ -1310,7 +1310,7 @@ else:
     # This block runs because 'filter_applied' is False by default.
     st.markdown("""
         <div class="info-box">
-            <h3>ðŸ  Welcome to Warsaw Apartment Hunter!</h3>
+            <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
             <p>Use the filters in the sidebar to find apartments that match your criteria and commute preferences.</p>
             <p><strong>Getting Started:</strong></p>
             <ul>
