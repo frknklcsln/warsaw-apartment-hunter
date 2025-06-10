@@ -3,7 +3,7 @@ Warsaw Apartment Hunter - Streamlit Dashboard
 ==============================================
 
 A comprehensive dashboard for finding apartments in Warsaw with optimal commute analysis.
-Uses pre-optimized GTFS transport data (99% smaller) for fast performance and deployment.
+Uses pre-optimized GTFS transport data for fast performance and deployment.
 
 Features:
 - Interactive apartment search with commute time analysis
@@ -684,22 +684,30 @@ def clear_all_caches_and_reset():
 # CHART CREATION FUNCTIONS (AESTHETIC & BUG-FIX UPDATE)
 # ==========================================
 
+# Define a modern, pastel color palette for the charts, perfect for a dark background
+PASTEL_GRADIENT = {
+    'price_hist': ['#a1c4fd', '#c2e9fb'],  # Sky blue gradient
+    'travel_hist': ['#ffc3a0', '#ffafbd'],  # Peach-pink gradient
+    'timeline_fill': 'rgba(168, 237, 234, 0.3)',  # Soft mint-green fill
+    'timeline_line': '#a8edea',  # Soft mint-green line
+    'scatter_discrete': px.colors.qualitative.Pastel,  # A beautiful pastel set for rooms
+}
+
+
 def create_price_distribution_chart(df):
-    """Creates a modern, styled histogram for price distribution with pastel colors."""
+    """Creates a modern, styled histogram for price distribution with a pastel gradient."""
     if df.empty or 'price' not in df.columns: return go.Figure()
 
-    fig = px.histogram(df, x="price", nbins=30, title="💰 Price Distribution")
+    fig = px.histogram(df, x="price", nbins=30, title="💰 Price Distribution",
+                       color_discrete_sequence=PASTEL_GRADIENT['price_hist'])
     fig.update_layout(
         title_font_size=22, title_x=0.5,
         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
         xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Price (PLN)"),
         yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments"),
-        bargap=0.1
+        bargap=0.1, legend_title_text=''
     )
-    fig.update_traces(
-        marker_color='#a1c4fd',  # Pastel blue
-        marker_line=dict(width=1.5, color='#1a1a2e')
-    )
+    fig.update_traces(marker_line=dict(width=1.5, color='#1a1a2e'))
     return fig
 
 
@@ -716,18 +724,16 @@ def create_travel_time_distribution_chart(df, apartment_routes):
     ]
     if not travel_times: return go.Figure()
 
-    fig = px.histogram(x=travel_times, nbins=20, title="🚌 Travel Time Distribution")
+    fig = px.histogram(x=travel_times, nbins=20, title="🚌 Travel Time Distribution",
+                       color_discrete_sequence=PASTEL_GRADIENT['travel_hist'])
     fig.update_layout(
         title_font_size=22, title_x=0.5,
         plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
         xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Travel Time (minutes)"),
         yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments"),
-        bargap=0.1
+        bargap=0.1, legend_title_text=''
     )
-    fig.update_traces(
-        marker_color='#c2e9fb',  # Pastel sky blue
-        marker_line=dict(width=1.5, color='#1a1a2e')
-    )
+    fig.update_traces(marker_line=dict(width=1.5, color='#1a1a2e'))
     return fig
 
 
@@ -754,7 +760,7 @@ def create_price_vs_commute_scatter(df, apartment_routes):
         scatter_df, x="travel_time", y="price", size="area", color="rooms",
         title="💸 Price vs. Commute Time (Size by Area, Color by Rooms)",
         size_max=20,
-        color_discrete_sequence=px.colors.qualitative.Pastel,
+        color_discrete_sequence=PASTEL_GRADIENT['scatter_discrete'],
         hover_data={'price': ':,', 'travel_time': ':.1f', 'area': True}
     )
     fig.update_layout(
@@ -781,8 +787,8 @@ def create_listings_timeline_chart(df):
         showlegend=False
     )
     fig.update_traces(
-        line=dict(color='#a8edea', width=2.5),
-        fillcolor='rgba(168, 237, 234, 0.3)',
+        line=dict(color=PASTEL_GRADIENT['timeline_line'], width=2.5),
+        fillcolor=PASTEL_GRADIENT['timeline_fill'],
         fill='tozeroy'
     )
     return fig
@@ -1237,28 +1243,40 @@ if st.session_state.get('filter_applied', False):
         with tab3:
             st.markdown("### 📊 Market Analytics")
 
-            # Create two columns for the main distribution charts
+            # Use placeholders for a better loading experience, preventing screen jumps
             col1, col2 = st.columns(2)
-            with col1:
-                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                st.plotly_chart(create_price_distribution_chart(final_filtered_df), use_container_width=True,
-                                key="price_dist")
-                st.markdown('</div>', unsafe_allow_html=True)
-            with col2:
-                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                st.plotly_chart(create_travel_time_distribution_chart(final_filtered_df, apartment_routes),
-                                use_container_width=True, key="travel_dist")
-                st.markdown('</div>', unsafe_allow_html=True)
+            chart1_placeholder = col1.empty()
+            chart2_placeholder = col2.empty()
+            chart3_placeholder = st.empty()
+            chart4_placeholder = st.empty()
 
-            # Display the more detailed, full-width charts below
-            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.plotly_chart(create_price_vs_commute_scatter(final_filtered_df, apartment_routes),
-                            use_container_width=True, key="price_vs_commute")
-            st.markdown('</div>', unsafe_allow_html=True)
+            with st.spinner("🎨 Generating beautiful analytics..."):
+                # Create two columns for the main distribution charts
+                with chart1_placeholder.container():
+                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                    st.plotly_chart(create_price_distribution_chart(final_filtered_df), use_container_width=True,
+                                    key="price_dist")
+                    st.markdown('</div>', unsafe_allow_html=True)
 
-            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.plotly_chart(create_listings_timeline_chart(final_filtered_df), use_container_width=True, key="timeline")
-            st.markdown('</div>', unsafe_allow_html=True)
+                with chart2_placeholder.container():
+                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                    st.plotly_chart(create_travel_time_distribution_chart(final_filtered_df, apartment_routes),
+                                    use_container_width=True, key="travel_dist")
+                    st.markdown('</div>', unsafe_allow_html=True)
+
+                # Display the more detailed, full-width charts below
+                with chart3_placeholder.container():
+                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                    st.plotly_chart(create_price_vs_commute_scatter(final_filtered_df, apartment_routes),
+                                    use_container_width=True, key="price_vs_commute")
+                    st.markdown('</div>', unsafe_allow_html=True)
+
+                with chart4_placeholder.container():
+                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                    st.plotly_chart(create_listings_timeline_chart(final_filtered_df), use_container_width=True,
+                                    key="timeline")
+                    st.markdown('</div>', unsafe_allow_html=True)
+
 
 
     else:
