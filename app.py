@@ -86,7 +86,7 @@ st.markdown("""
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
-        max-width: 200%;
+        max-width: 100%;
     }
     
     /* Header styling with gradient background */
@@ -96,7 +96,7 @@ st.markdown("""
         padding: 2rem;
         border-radius: 9px;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.1rem;
         box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     }
     
