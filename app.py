@@ -1052,7 +1052,6 @@ if submitted:
             if rooms_count == 0:
                 st.warning("🚫 **No apartments match your criteria**")
                 st.info("💡 **Try**: Selecting different room counts")
-                st.session_state.filter_applied = False
             elif price_count == 0:
                 st.warning("🚫 **No apartments match your criteria**")
                 st.info(f"💡 **Try**: Increasing max price above {max_price:,} PLN")
@@ -1180,15 +1179,16 @@ if st.session_state.get('filter_applied', False):
                 f"""<div class="metric-card"><div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Average Price</div><div style="font-size: 2rem; font-weight: 700; color: #10b981; margin: 0.5rem 0;">{avg_price:,} PLN</div></div>""",
                 unsafe_allow_html=True)
         with col4:
-            apt_ids = final_filtered_df[
-                'listing_id'].tolist() if 'listing_id' in final_filtered_df.columns else final_filtered_df.index.tolist()
-            travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if
-                            route['listing_id'] in apt_ids]
-            if travel_times:
-                avg_travel = int(np.mean(travel_times))
-                st.markdown(
-                    f"""<div class="metric-card"><div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Avg Travel Time</div><div style="font-size: 2rem; font-weight: 700; color: #8b5cf6; margin: 0.5rem 0;">{avg_travel} min</div></div>""",
-                    unsafe_allow_html=True)
+            if apartment_routes:
+                apt_ids = final_filtered_df[
+                    'listing_id'].tolist() if 'listing_id' in final_filtered_df.columns else final_filtered_df.index.tolist()
+                travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if
+                                route['listing_id'] in apt_ids]
+                if travel_times:
+                    avg_travel = int(np.mean(travel_times))
+                    st.markdown(
+                        f"""<div class="metric-card"><div style="font-size: 0.9rem; color: #718096; font-weight: 500; margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Avg Travel Time</div><div style="font-size: 2rem; font-weight: 700; color: #8b5cf6; margin: 0.5rem 0;">{avg_travel} min</div></div>""",
+                        unsafe_allow_html=True)
 
         selected_rooms_clean = [int(room) for room in filters['selected_rooms']]
         st.markdown(
@@ -1240,35 +1240,46 @@ if st.session_state.get('filter_applied', False):
                             st.link_button("🏠 View Listing", apartment['url'], use_container_width=True)
         with tab3:
             st.markdown("### 📊 Market Analytics")
+            st.markdown("#### 📈 Key Performance Indicators")
+            kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+            with kpi1:
+                avg_price_m2 = final_filtered_df['price'].sum() / final_filtered_df['area'].sum() if final_filtered_df[
+                                                                                                         'area'].sum() > 0 else 0
+                st.markdown(
+                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Price/m²</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_price_m2:.0f} PLN</div></div>""",
+                    unsafe_allow_html=True)
+            with kpi2:
+                avg_comm = np.mean([route.get('total_time', 0) for route in apartment_routes.values()])
+                st.markdown(
+                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_comm:.1f} min</div></div>""",
+                    unsafe_allow_html=True)
+            with kpi3:
+                median_p = final_filtered_df['price'].median()
+                st.markdown(
+                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Median Price</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{median_p:,.0f} PLN</div></div>""",
+                    unsafe_allow_html=True)
+            with kpi4:
+                best_comm = min([route.get('total_time', 0) for route in apartment_routes.values()])
+                st.markdown(
+                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Best Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{best_comm:.1f} min</div></div>""",
+                    unsafe_allow_html=True)
 
-            # Create two columns for the main distribution charts
-            col1, col2 = st.columns(2)
-
-            with col1:
-                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                price_chart = create_price_distribution_chart(final_filtered_df)
-                st.plotly_chart(price_chart, use_container_width=True, key="price_distribution")
-                st.markdown('</div>', unsafe_allow_html=True)
-
-            with col2:
-                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                travel_chart = create_travel_time_distribution_chart(final_filtered_df, apartment_routes)
-                st.plotly_chart(travel_chart, use_container_width=True, key="travel_distribution")
-                st.markdown('</div>', unsafe_allow_html=True)
-
-            # Display the more detailed, full-width charts below
+            # Calling the new aesthetic chart functions
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            scatter_plot = create_price_vs_commute_scatter(final_filtered_df, apartment_routes)
-            st.plotly_chart(scatter_plot, use_container_width=True, key="price_vs_commute_scatter")
+            st.plotly_chart(create_price_distribution_chart(final_filtered_df), use_container_width=True,
+                            key="price_dist")
             st.markdown('</div>', unsafe_allow_html=True)
-
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            timeline_chart = create_listings_timeline_chart(final_filtered_df)
-            st.plotly_chart(timeline_chart, use_container_width=True, key="listings_timeline")
+            st.plotly_chart(create_travel_time_distribution_chart(final_filtered_df, apartment_routes),
+                            use_container_width=True, key="travel_dist")
             st.markdown('</div>', unsafe_allow_html=True)
-
-
-
+            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+            st.plotly_chart(create_price_vs_commute_scatter(final_filtered_df, apartment_routes),
+                            use_container_width=True, key="price_vs_commute")
+            st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+            st.plotly_chart(create_listings_timeline_chart(final_filtered_df), use_container_width=True, key="timeline")
+            st.markdown('</div>', unsafe_allow_html=True)
 
     else:
         # STATE 2: NO RESULTS FOUND - Display enhanced feedback ONLY
@@ -1294,33 +1305,28 @@ if st.session_state.get('filter_applied', False):
 else:
     # STATE 3: INITIAL LOAD / REFRESH - Display welcome message ONLY
     # This block runs because 'filter_applied' is False by default.
-    st.markdown("""
-        <div class="info-box">
-            <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
-            <p>Use the filters in the sidebar to find apartments that match your criteria and commute preferences.</p>
-            <p><strong>Getting Started:</strong></p>
-            <ul>
-                <li>Set your room and price preferences</li>
-                <li>Choose your maximum travel time to work</li>
-                <li>Select the date range for listings</li>
-                <li>Click "Find Apartments" to see results</li>
-            </ul>
-            <p><strong>Quick Address Check:</strong></p>
-            <ul>
-                <li>Use the sidebar tool to check any Warsaw address</li>
-                <li>Get instant feasibility analysis</li>
-                <li>See travel time breakdown</li>
-                <li>View results on the map</li>
-            </ul>
-            <p><strong>Data Management:</strong></p>
-            <ul>
-                <li>Use "Update Apartments" to run the scraper for new listings</li>
-                <li>Use "Clear Cache" to refresh the dashboard</li>
-                <li><strong>Note:</strong> Transport data is pre-optimized and doesn't need updates</li>
-            </ul>
+    st.markdown(
+        """
+        <div style="text-align: center; padding: 2rem;">
+            <h1>🏠 Welcome to the Warsaw Apartment Hunter!</h1>
+            <p style="font-size: 1.1rem; color: #555;">Use the filters on the left to find your ideal apartment based on commute and preferences.</p>
         </div>
-        """, unsafe_allow_html=True)
 
+        ---
+
+        ### How to Get Started
+        1.  **Set Your Filters:** Use the sidebar to set your desired **room count**, **max price**, and **max travel time**.
+        2.  **Run the Search:** Click the **"Find Apartments"** button to run the optimization.
+        3.  **Analyze Results:** Explore the interactive map, apartment list, and analytics tabs.
+
+        ### Extra Tools
+        - **Quick Address Check:** Instantly see if any address in Warsaw is a feasible commute.
+        - **Data Management:** Check the data status or clear the cache if needed.
+
+        *This system uses pre-optimized public transport data for fast, accurate commute calculations.*
+        """,
+        unsafe_allow_html=True
+    )
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
