@@ -1011,7 +1011,7 @@ with st.sidebar:
             last_updated_time = datetime.fromtimestamp(last_modified_timestamp)
 
             # Display the last update time in a user-friendly format
-            st.success(f"Data last updated: {last_updated_time.strftime('%Y-%m-%d %H:%M')}")
+            st.success(f"Data last updated: {last_updated_time.strftime('%Y-%m-%d %H:%M')} UTC")
             st.info("Data is automatically refreshed multiple times a day via GitHub Actions.")
         else:
             st.error("Apartment data file not found. Please run the initial scraper.")
