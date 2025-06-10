@@ -86,7 +86,7 @@ st.markdown("""
     .main .block-container {
         padding-top: 2rem;
         padding-bottom: 2rem;
-        max-width: 50%;
+        max-width: 200%;
     }
     
     /* Header styling with gradient background */
