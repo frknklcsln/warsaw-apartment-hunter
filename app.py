@@ -1308,28 +1308,33 @@ if st.session_state.get('filter_applied', False):
 else:
     # STATE 3: INITIAL LOAD / REFRESH - Display welcome message ONLY
     # This block runs because 'filter_applied' is False by default.
-    st.markdown(
-        """
-        <div style="text-align: center; padding: 2rem;">
-            <h1>🏠 Welcome to the Warsaw Apartment Hunter!</h1>
-            <p style="font-size: 1.1rem; color: #555;">Use the filters on the left to find your ideal apartment based on commute and preferences.</p>
+    st.markdown("""
+        <div class="info-box">
+            <h3>ðŸ  Welcome to Warsaw Apartment Hunter!</h3>
+            <p>Use the filters in the sidebar to find apartments that match your criteria and commute preferences.</p>
+            <p><strong>Getting Started:</strong></p>
+            <ul>
+                <li>Set your room and price preferences</li>
+                <li>Choose your maximum travel time to work</li>
+                <li>Select the date range for listings</li>
+                <li>Click "Find Apartments" to see results</li>
+            </ul>
+            <p><strong>Quick Address Check:</strong></p>
+            <ul>
+                <li>Use the sidebar tool to check any Warsaw address</li>
+                <li>Get instant feasibility analysis</li>
+                <li>See travel time breakdown</li>
+                <li>View results on the map</li>
+            </ul>
+            <p><strong>Data Management:</strong></p>
+            <ul>
+                <li>Use "Update Apartments" to run the scraper for new listings</li>
+                <li>Use "Clear Cache" to refresh the dashboard</li>
+                <li><strong>Note:</strong> Transport data is pre-optimized and doesn't need updates</li>
+            </ul>
         </div>
+        """, unsafe_allow_html=True)
 
-        ---
-
-        ### How to Get Started
-        1.  **Set Your Filters:** Use the sidebar to set your desired **room count**, **max price**, and **max travel time**.
-        2.  **Run the Search:** Click the **"Find Apartments"** button to run the optimization.
-        3.  **Analyze Results:** Explore the interactive map, apartment list, and analytics tabs.
-
-        ### Extra Tools
-        - **Quick Address Check:** Instantly see if any address in Warsaw is a feasible commute.
-        - **Data Management:** Refresh the apartment listings with the latest data.
-
-        *This system uses pre-optimized public transport data for fast, accurate commute calculations.*
-        """,
-        unsafe_allow_html=True
-    )
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
