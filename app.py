@@ -683,42 +683,87 @@ def clear_all_caches_and_reset():
 # CHART CREATION FUNCTIONS
 # ==========================================
 
-def create_enhanced_price_chart(filtered_df):
-    """Create enhanced price distribution chart with modern styling."""
-    fig = px.histogram(
-        filtered_df,
-        x='price',
-        nbins=12,
-        title="💰 Price Distribution"
-    )
+# ==========================================
+# CHART CREATION FUNCTIONS
+# ==========================================
 
+def create_enhanced_price_chart(df):
+    """Creates a modern, styled histogram for price distribution."""
+    fig = px.histogram(df, x="price", nbins=20, title="💰 Price Distribution")
     fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)',
-        paper_bgcolor='rgba(0,0,0,0)',
-        font_color='white',
-        title_font_size=16,
-        title_x=0.5,
-        xaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Price (PLN)",
-            title_font_color='white'
-        ),
-        yaxis=dict(
-            gridcolor='rgba(255,255,255,0.1)',
-            title="Number of Apartments",
-            title_font_color='white'
-        ),
-        bargap=0.1
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
+        title_font_size=20, title_x=0.5, bargap=0.1,
+        xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Price (PLN)"),
+        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments")
     )
-
-    fig.update_traces(
-        marker=dict(
-            color='rgba(102, 126, 234, 0.8)',
-            line=dict(color='rgba(102, 126, 234, 1)', width=1)
-        )
-    )
-
+    fig.update_traces(marker_color='#667eea', marker_line=dict(width=1, color='white'))
     return fig
+
+
+def create_enhanced_travel_chart(df, apartment_routes):
+    """Creates a modern, styled histogram for travel time distribution."""
+    travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if
+                    route['listing_id'] in df.index]
+    if not travel_times: return go.Figure()  # Return empty figure if no data
+
+    fig = px.histogram(x=travel_times, nbins=15, title="🚌 Travel Time Distribution")
+    fig.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
+        title_font_size=20, title_x=0.5, bargap=0.1,
+        xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Travel Time (minutes)"),
+        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments")
+    )
+    fig.update_traces(marker_color='#f093fb', marker_line=dict(width=1, color='white'))
+    return fig
+
+
+def create_enhanced_scatter_chart(df, apartment_routes):
+    """Creates a modern scatter plot of Price vs. Travel Time, with area representing size."""
+    scatter_data = []
+    for index, apartment in df.iterrows():
+        route = apartment_routes.get(index, {})
+        if route:
+            scatter_data.append({
+                'travel_time': route.get('total_time', 0),
+                'price': apartment['price'],
+                'area': apartment.get('area', 50),
+                'rooms': apartment.get('rooms', 1)
+            })
+    if not scatter_data: return go.Figure()
+
+    scatter_df = pd.DataFrame(scatter_data)
+    fig = px.scatter(
+        scatter_df, x="travel_time", y="price", size="area", color="rooms",
+        title="💸 Price vs. Commute Time (Size by Area, Color by Rooms)",
+        size_max=18, hover_name=scatter_df.index,
+        color_continuous_scale=px.colors.sequential.Viridis
+    )
+    fig.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
+        title_font_size=20, title_x=0.5,
+        xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Travel Time (minutes)"),
+        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Price (PLN)"),
+        legend_title_text='Rooms'
+    )
+    return fig
+
+
+def create_enhanced_timeline_chart(df):
+    """Creates a modern area chart showing new listings over time."""
+    if 'created_at_date' not in df.columns: return go.Figure()
+
+    date_counts = df['created_at_date'].value_counts().sort_index()
+    fig = px.area(date_counts, x=date_counts.index, y=date_counts.values, title="📅 New Listings Timeline")
+    fig.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
+        title_font_size=20, title_x=0.5,
+        xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Date"),
+        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of New Listings"),
+        showlegend=False
+    )
+    fig.update_traces(line=dict(color='#667eea', width=3), fillcolor='rgba(102, 126, 234, 0.3)')
+    return fig
+
 
 def create_enhanced_travel_chart(travel_times):
     """Create enhanced travel time distribution chart."""
