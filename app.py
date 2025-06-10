@@ -1146,11 +1146,6 @@ if st.session_state.filter_applied and st.session_state.needs_route_calculation:
 # RESULTS DISPLAY
 # ==========================================
 
-# This logic now correctly handles all three states:
-# 1. Filters applied with results
-# 2. Filters applied with NO results
-# 3. No filters applied yet (initial load / refresh)
-
 # ==========================================
 # RESULTS DISPLAY / WELCOME MESSAGE
 # ==========================================
@@ -1161,7 +1156,7 @@ if st.session_state.filter_applied and st.session_state.needs_route_calculation:
 # 3. No filters applied yet (initial load / refresh)
 
 if st.session_state.get('filter_applied', False):
-    # STATE 1 & 2: This block runs ONLY after the "Find Apartments" button is clicked.
+    # This block runs ONLY after the "Find Apartments" button has been clicked.
     # It will never show the welcome message.
 
     # Start with the dataframe that has been pre-filtered by price and rooms
@@ -1190,6 +1185,7 @@ if st.session_state.get('filter_applied', False):
 
     if not final_filtered_df.empty:
         # STATE 1: RESULTS FOUND - Display all metrics, maps, and lists.
+
         st.markdown("## 📊 Overview")
         col1, col2, col3, col4 = st.columns(4)
 
@@ -1221,7 +1217,7 @@ if st.session_state.get('filter_applied', False):
 
         selected_rooms_clean = [int(room) for room in filters['selected_rooms']]
         st.markdown(
-            f"""<div class="info-box"><strong>📅 Active Filters:</strong> Rooms: {selected_rooms_clean} | Max Price: {filters['max_price']:,} PLN | Max Travel: {filters['max_travel_time']} min | Date Range: {start_date} to {end_date}</div>""",
+            f"""<div class="info-box"><strong>📅 Active Filters:</strong> Rooms: {selected_rooms_clean} | Max Price: {filters['max_price']:,} PLN | Max Travel: {filters['max_travel_time']} min | Date Range: {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}</div>""",
             unsafe_allow_html=True)
 
         tab1, tab2, tab3 = st.tabs(["🗺️ Map View", "📋 List View", "📊 Analytics"])
