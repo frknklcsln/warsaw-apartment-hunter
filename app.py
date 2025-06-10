@@ -679,49 +679,77 @@ def clear_all_caches_and_reset():
     if 'temp_location' in st.session_state:
         st.session_state.temp_location = None
 
+
 # ==========================================
-# CHART CREATION FUNCTIONS
+# CHART CREATION FUNCTIONS (AESTHETIC UPDATE)
 # ==========================================
 
-def create_enhanced_price_chart(df):
-    """Creates a modern, styled histogram for price distribution."""
-    fig = px.histogram(df, x="price", nbins=20, title="💰 Price Distribution")
+# Define a modern, pastel color palette for the charts
+PASTEL_COLORS = {
+    'price': '#a1c4fd',  # Bubblegum Sky
+    'travel': '#c2e9fb',  # Bubblegum Sky
+    'timeline_fill': 'rgba(168, 237, 234, 0.3)',  # Pastel Ocean
+    'timeline_line': '#a8edea',  # Pastel Ocean
+    'scatter_scale': 'Plasma'  # A beautiful gradient color scale
+}
+
+
+def create_price_distribution_chart(df):
+    """Creates a modern, styled histogram for price distribution with pastel colors."""
+    if df.empty or 'price' not in df.columns: return go.Figure()
+
+    fig = px.histogram(df, x="price", nbins=25, title="💰 Price Distribution")
     fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
-        title_font_size=20, title_x=0.5, bargap=0.1,
+        title_font_size=22, title_x=0.5,
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
         xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Price (PLN)"),
-        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments")
+        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments"),
+        bargap=0.1
     )
-    fig.update_traces(marker_color='#667eea', marker_line=dict(width=1, color='white'))
+    fig.update_traces(
+        marker_color=PASTEL_COLORS['price'],
+        marker_line=dict(width=1.5, color='#1a1a2e')
+    )
     return fig
 
-def create_enhanced_travel_chart(df, apartment_routes):
-    """Creates a modern, styled histogram for travel time distribution."""
-    # Correctly calculates travel_times inside the function from the two arguments
-    travel_times = [route.get('total_time', 0) for route in apartment_routes.values() if route.get('listing_id') in df.index]
-    if not travel_times: return go.Figure()  # Return empty figure if no data
 
-    fig = px.histogram(x=travel_times, nbins=15, title="🚌 Travel Time Distribution")
+def create_travel_time_distribution_chart(df, apartment_routes):
+    """Creates a modern, styled histogram for travel time distribution with pastel colors."""
+    if df.empty or not apartment_routes: return go.Figure()
+
+    listing_ids = df.index
+    travel_times = [route.get('total_time', 0) for listing_id, route in apartment_routes.items() if
+                    listing_id in listing_ids]
+    if not travel_times: return go.Figure()
+
+    fig = px.histogram(x=travel_times, nbins=20, title="🚌 Travel Time Distribution")
     fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
-        title_font_size=20, title_x=0.5, bargap=0.1,
+        title_font_size=22, title_x=0.5,
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
         xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Travel Time (minutes)"),
-        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments")
+        yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of Apartments"),
+        bargap=0.1
     )
-    fig.update_traces(marker_color='#f093fb', marker_line=dict(width=1, color='white'))
+    fig.update_traces(
+        marker_color=PASTEL_COLORS['travel'],
+        marker_line=dict(width=1.5, color='#1a1a2e')
+    )
     return fig
 
-def create_enhanced_scatter_chart(df, apartment_routes):
-    """Creates a modern scatter plot of Price vs. Travel Time, with area representing size."""
+
+def create_price_vs_commute_scatter(df, apartment_routes):
+    """Creates a modern scatter plot of Price vs. Travel Time, encoding area and rooms."""
+    if df.empty or not apartment_routes: return go.Figure()
+
     scatter_data = []
     for index, apartment in df.iterrows():
-        route = apartment_routes.get(index, {})
+        route = apartment_routes.get(index)
         if route:
             scatter_data.append({
                 'travel_time': route.get('total_time', 0),
                 'price': apartment['price'],
                 'area': apartment.get('area', 50),
-                'rooms': apartment.get('rooms', 1)
+                'rooms': f"{int(apartment.get('rooms', 1))} rooms"
             })
     if not scatter_data: return go.Figure()
 
@@ -729,33 +757,40 @@ def create_enhanced_scatter_chart(df, apartment_routes):
     fig = px.scatter(
         scatter_df, x="travel_time", y="price", size="area", color="rooms",
         title="💸 Price vs. Commute Time (Size by Area, Color by Rooms)",
-        size_max=18,
-        color_continuous_scale=px.colors.sequential.Viridis
+        size_max=20,
+        color_discrete_sequence=px.colors.qualitative.Pastel,
+        hover_data={'price': ':,', 'travel_time': ':.1f', 'area': True}
     )
     fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
-        title_font_size=20, title_x=0.5,
+        title_font_size=22, title_x=0.5,
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
         xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Travel Time (minutes)"),
         yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Price (PLN)"),
         legend_title_text='Rooms'
     )
     return fig
 
-def create_enhanced_timeline_chart(df):
-    """Creates a modern area chart showing new listings over time."""
-    if 'created_at_date' not in df.columns: return go.Figure()
+
+def create_listings_timeline_chart(df):
+    """Creates a modern, gradient area chart showing new listings over time."""
+    if df.empty or 'created_at_date' not in df.columns: return go.Figure()
 
     date_counts = df['created_at_date'].value_counts().sort_index()
     fig = px.area(date_counts, x=date_counts.index, y=date_counts.values, title="📅 New Listings Timeline")
     fig.update_layout(
-        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='white',
-        title_font_size=20, title_x=0.5,
+        title_font_size=22, title_x=0.5,
+        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', font_color='#EAEAEA',
         xaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Date"),
         yaxis=dict(gridcolor='rgba(255,255,255,0.1)', title="Number of New Listings"),
         showlegend=False
     )
-    fig.update_traces(line=dict(color='#667eea', width=3), fillcolor='rgba(102, 126, 234, 0.3)')
+    fig.update_traces(
+        line=dict(color=PASTEL_COLORS['timeline_line'], width=2.5),
+        fillcolor=PASTEL_COLORS['timeline_fill'],
+        fill='tozeroy'
+    )
     return fig
+
 
 # ==========================================
 # MAIN APP INITIALIZATION
@@ -1206,29 +1241,32 @@ if st.session_state.get('filter_applied', False):
         with tab3:
             st.markdown("### 📊 Market Analytics")
 
+            # Create two columns for the main distribution charts
             col1, col2 = st.columns(2)
 
             with col1:
                 st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                price_chart = create_enhanced_price_chart(final_filtered_df)
-                st.plotly_chart(price_chart, use_container_width=True, key="price_chart")
+                price_chart = create_price_distribution_chart(final_filtered_df)
+                st.plotly_chart(price_chart, use_container_width=True, key="price_distribution")
                 st.markdown('</div>', unsafe_allow_html=True)
 
             with col2:
                 st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                travel_chart = create_enhanced_travel_chart(final_filtered_df, apartment_routes)
-                st.plotly_chart(travel_chart, use_container_width=True, key="travel_chart")
+                travel_chart = create_travel_time_distribution_chart(final_filtered_df, apartment_routes)
+                st.plotly_chart(travel_chart, use_container_width=True, key="travel_distribution")
                 st.markdown('</div>', unsafe_allow_html=True)
 
+            # Display the more detailed, full-width charts below
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            scatter_chart = create_enhanced_scatter_chart(final_filtered_df, apartment_routes)
-            st.plotly_chart(scatter_chart, use_container_width=True, key="scatter_chart")
+            scatter_plot = create_price_vs_commute_scatter(final_filtered_df, apartment_routes)
+            st.plotly_chart(scatter_plot, use_container_width=True, key="price_vs_commute_scatter")
             st.markdown('</div>', unsafe_allow_html=True)
 
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            timeline_chart = create_enhanced_timeline_chart(final_filtered_df)
-            st.plotly_chart(timeline_chart, use_container_width=True, key="timeline_chart")
+            timeline_chart = create_listings_timeline_chart(final_filtered_df)
+            st.plotly_chart(timeline_chart, use_container_width=True, key="listings_timeline")
             st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 
