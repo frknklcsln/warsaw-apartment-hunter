@@ -94,10 +94,10 @@ st.markdown("""
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         padding: 2rem;
-        border-radius: 12px;
+        border-radius: 9px;
         text-align: center;
         margin-bottom: 2rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
     .main-header h1 {
