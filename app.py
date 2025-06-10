@@ -1449,7 +1449,7 @@ if st.session_state.filter_applied and not st.session_state.filtered_df.empty:
 
 elif st.session_state.filter_applied:
     st.info("👈 Please set your filters and click 'Find Apartments' to start searching.")
-else:
+elif not st.session_state.get('filter_applied', False):
     # Welcome message with information about optimized data
     st.markdown("""
     <div class="info-box">
