@@ -96,7 +96,7 @@ st.markdown("""
         padding: 2rem;
         border-radius: 9px;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
