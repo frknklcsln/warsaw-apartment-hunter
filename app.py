@@ -1447,10 +1447,8 @@ if st.session_state.filter_applied and not st.session_state.filtered_df.empty:
             st.info("💡 **Try**: Adjusting your room count, budget, or date range")
 
 
-elif st.session_state.filter_applied:
-    st.info("👈 Please set your filters and click 'Find Apartments' to start searching.")
 elif not st.session_state.get('filter_applied', False):
-    # Welcome message with information about optimized data
+    # Only show welcome when no search has been performed yet
     st.markdown("""
     <div class="info-box">
         <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
@@ -1477,7 +1475,6 @@ elif not st.session_state.get('filter_applied', False):
         </ul>
     </div>
     """, unsafe_allow_html=True)
-
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
 # ==========================================
