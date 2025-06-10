@@ -1445,8 +1445,8 @@ if st.session_state.filter_applied:
         st.warning("🚫 **No apartments match your criteria**")
         st.info("💡 **Try**: Adjusting your room count, budget, or date range")
 
-else:
-    # No filters applied yet - show welcome message
+elif not st.session_state.get('filter_applied', False):
+    # Only show welcome when NO search has been performed yet
     st.markdown("""
     <div class="info-box">
         <h3>🏠 Welcome to Warsaw Apartment Hunter!</h3>
@@ -1473,6 +1473,7 @@ else:
         </ul>
     </div>
     """, unsafe_allow_html=True)
+
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
