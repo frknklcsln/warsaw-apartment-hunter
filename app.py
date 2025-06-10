@@ -687,7 +687,7 @@ def clear_all_caches_and_reset():
 # Define a modern, pastel color palette for the charts, perfect for a dark background
 PASTEL_GRADIENT = {
     'price_hist': ['#a1c4fd', '#c2e9fb'],  # Sky blue gradient
-    'travel_hist': ['#ffc3a0', '#ffafbd'],  # Peach-pink gradient
+    'travel_hist': ['#d4b2f5', '#9a67ea'],  # Peach-pink gradient
     'timeline_fill': 'rgba(168, 237, 234, 0.3)',  # Soft mint-green fill
     'timeline_line': '#a8edea',  # Soft mint-green line
     'scatter_discrete': px.colors.qualitative.Pastel,  # A beautiful pastel set for rooms
