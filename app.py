@@ -1076,7 +1076,6 @@ if submitted:
             elif price_count == 0:
                 st.warning("🚫 **No apartments match your criteria**")
                 st.info(f"💡 **Try**: Increasing max price above {max_price:,} PLN")
-                st.session_state.filter_applied = False
             elif price_count < 5:
                 st.warning(f"⚠️ **Only {price_count} apartments** match your price and room criteria")
                 st.info("💡 **Consider**: Slightly increasing your budget or expanding room options")
@@ -1309,27 +1308,28 @@ if st.session_state.get('filter_applied', False):
 else:
     # STATE 3: INITIAL LOAD / REFRESH - Display welcome message ONLY
     # This block runs because 'filter_applied' is False by default.
-    st.markdown("""
-    <div class="info-box" style="text-align: left; padding: 2rem; border: none; background: #f8f9fa;">
-        <h3 style="font-weight: 700; color: #343a40;">🏠 Welcome to the Warsaw Apartment Hunter!</h3>
-        <p style="color: #6c757d; font-size: 1.1rem;">Use the filters in the sidebar to find your ideal apartment based on your commute and preferences.</p>
+    st.markdown(
+        """
+        <div style="text-align: center; padding: 2rem;">
+            <h1>🏠 Welcome to the Warsaw Apartment Hunter!</h1>
+            <p style="font-size: 1.1rem; color: #555;">Use the filters on the left to find your ideal apartment based on commute and preferences.</p>
+        </div>
 
-        <h4 style="font-weight: 600; color: #495057; margin-top: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem;">Getting Started</h4>
-        <ul style="list-style-type: '✅'; padding-left: 2rem; color: #495057;">
-            <li style="margin-bottom: 0.5rem;">Set your desired <strong>room count</strong> and <strong>max price</strong>.</li>
-            <li style="margin-bottom: 0.5rem;">Define your maximum <strong>travel time</strong> to the office.</li>
-            <li style="margin-bottom: 0.5rem;">Select a <strong>date range</strong> for new listings.</li>
-            <li style="margin-bottom: 0.5rem;">Click <strong>"Find Apartments"</strong> to run the optimization.</li>
-        </ul>
+        ---
 
-        <h4 style="font-weight: 600; color: #495057; margin-top: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem;">Extra Tools</h4>
-        <ul style="list-style-type: '➡️'; padding-left: 2rem; color: #495057;">
-            <li style="margin-bottom: 0.5rem;">Use the <strong>Quick Address Check</strong> to analyze any location.</li>
-            <li style="margin-bottom: 0.5rem;">Use the <strong>Data Management</strong> tools to refresh apartment data.</li>
-        </ul>
-        <p style="text-align: center; margin-top: 2rem; color: #6c757d;"><em>This system uses pre-optimized transport data for fast performance.</em></p>
-    </div>
-    """, unsafe_allow_html=True)
+        ### How to Get Started
+        1.  **Set Your Filters:** Use the sidebar to set your desired **room count**, **max price**, and **max travel time**.
+        2.  **Run the Search:** Click the **"Find Apartments"** button to run the optimization.
+        3.  **Analyze Results:** Explore the interactive map, apartment list, and analytics tabs.
+
+        ### Extra Tools
+        - **Quick Address Check:** Instantly see if any address in Warsaw is a feasible commute.
+        - **Data Management:** Refresh the apartment listings with the latest data.
+
+        *This system uses pre-optimized public transport data for fast, accurate commute calculations.*
+        """,
+        unsafe_allow_html=True
+    )
 
 # ==========================================
 # SIDEBAR FOOTER WITH RESULTS AND SYSTEM INFO
