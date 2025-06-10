@@ -1253,6 +1253,7 @@ if st.session_state.get('filter_applied', False):
             with st.spinner("🎨 Generating beautiful analytics..."):
                 # Create two columns for the main distribution charts
                 with chart1_placeholder.container():
+                    st.markdown('<div class="chart-container">', unsafe_allow_html=True)
                     st.plotly_chart(create_price_distribution_chart(final_filtered_df), use_container_width=True,
                                     key="price_dist")
                     st.markdown('</div>', unsafe_allow_html=True)
