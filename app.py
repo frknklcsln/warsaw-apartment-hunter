@@ -1317,29 +1317,33 @@ if st.session_state.get('filter_applied', False):
                             st.link_button("🏠 View Listing", apartment['url'], use_container_width=True)
         with tab3:
             st.markdown("### 📊 Market Analytics")
-            st.markdown("#### 📈 Key Performance Indicators")
-            kpi1, kpi2, kpi3, kpi4 = st.columns(4)
-            with kpi1:
-                avg_price_m2 = final_filtered_df['price'].sum() / final_filtered_df['area'].sum() if final_filtered_df[
-                                                                                                         'area'].sum() > 0 else 0
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Price/m²</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_price_m2:.0f} PLN</div></div>""",
-                    unsafe_allow_html=True)
-            with kpi2:
-                avg_comm = np.mean([route.get('total_time', 0) for route in apartment_routes.values()])
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Avg Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{avg_comm:.1f} min</div></div>""",
-                    unsafe_allow_html=True)
-            with kpi3:
-                median_p = final_filtered_df['price'].median()
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Median Price</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{median_p:,.0f} PLN</div></div>""",
-                    unsafe_allow_html=True)
-            with kpi4:
-                best_comm = min([route.get('total_time', 0) for route in apartment_routes.values()])
-                st.markdown(
-                    f"""<div class="kpi-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"><div style="font-size: 0.9rem; margin: 0; opacity: 0.9;">Best Commute</div><div style="font-size: 2rem; font-weight: 700; margin: 0.5rem 0;">{best_comm:.1f} min</div></div>""",
-                    unsafe_allow_html=True)
+
+            # Create two columns for the histograms
+            col1, col2 = st.columns(2)
+
+            with col1:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                price_chart = create_enhanced_price_chart(final_filtered_df)
+                st.plotly_chart(price_chart, use_container_width=True)
+                st.markdown('</div>', unsafe_allow_html=True)
+
+            with col2:
+                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+                travel_chart = create_enhanced_travel_chart(final_filtered_df, apartment_routes)
+                st.plotly_chart(travel_chart, use_container_width=True)
+                st.markdown('</div>', unsafe_allow_html=True)
+
+            # Create full-width charts for the more detailed analytics
+            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+            scatter_chart = create_enhanced_scatter_chart(final_filtered_df, apartment_routes)
+            st.plotly_chart(scatter_chart, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+
+            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+            timeline_chart = create_enhanced_timeline_chart(final_filtered_df)
+            st.plotly_chart(timeline_chart, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+
 
     else:
         # STATE 2: NO RESULTS FOUND - Display enhanced feedback ONLY
