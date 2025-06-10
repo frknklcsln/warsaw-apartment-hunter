@@ -1051,6 +1051,36 @@ if submitted:
     st.session_state.current_filters = new_filters
     st.session_state.filter_applied = True
 
+    # ENHANCED: Check for feasible solutions and provide feedback
+    if st.session_state.filter_applied and st.session_state.needs_route_calculation:
+        with st.spinner("🔄 Checking apartment availability..."):
+            # Quick feasibility check
+            apartments_df = analyzer.apartments
+
+            # Step-by-step filtering with counts
+            original_count = len(apartments_df)
+
+            # Room filter
+            after_rooms = apartments_df[apartments_df['rooms'].isin(selected_rooms)]
+            rooms_count = len(after_rooms)
+
+            # Price filter
+            after_price = after_rooms[after_rooms['price'] <= max_price]
+            price_count = len(after_price)
+
+            # Basic feasibility check (before full route calculation)
+            if rooms_count == 0:
+                st.warning("🚫 **No apartments match your criteria**")
+                st.info("💡 **Try**: Selecting different room counts")
+                st.session_state.filter_applied = False
+            elif price_count == 0:
+                st.warning("🚫 **No apartments match your criteria**")
+                st.info(f"💡 **Try**: Increasing max price above {max_price:,} PLN")
+                st.session_state.filter_applied = False
+            elif price_count < 5:
+                st.warning(f"⚠️ **Only {price_count} apartments** match your price and room criteria")
+                st.info("💡 **Consider**: Slightly increasing your budget or expanding room options")
+
 # ==========================================
 # ROUTE CALCULATION
 # ==========================================
@@ -1390,8 +1420,32 @@ if st.session_state.filter_applied and not st.session_state.filtered_df.empty:
                     st.plotly_chart(scatter_fig, use_container_width=True)
                 st.markdown('</div>', unsafe_allow_html=True)
 
+
     else:
-        st.warning("🔍 No apartments found matching your criteria. Try adjusting your filters.")
+
+        st.warning("🚫 **No apartments match your criteria**")
+
+        # Provide specific guidance based on what was filtered out
+
+        if 'apartment_routes' in st.session_state and st.session_state.apartment_routes:
+
+            # Routes were calculated but travel time filter eliminated everything
+
+            st.info(f"💡 **Try**: Increasing max travel time above {filters['max_travel_time']} minutes")
+
+            # Show what travel times are actually available
+
+            available_times = [route.get('total_time', 0) for route in st.session_state.apartment_routes.values()]
+
+            if available_times:
+                min_time = min(available_times)
+
+                st.info(f"📊 **Available options**: Shortest commute is {min_time:.1f} minutes")
+
+        else:
+
+            st.info("💡 **Try**: Adjusting your room count, budget, or date range")
+
 
 elif st.session_state.filter_applied:
     st.info("👈 Please set your filters and click 'Find Apartments' to start searching.")
