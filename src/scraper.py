@@ -1151,8 +1151,7 @@ class OtodomScraper:
 
     def scrape_all_listings(self):
         """Main method to scrape all listings with proper message-based removal"""
-        base_url = "https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/mazowieckie/warszawa/warszawa/warszawa?limit=72&extras=%5BIS_PRIVATE_OWNER%5D&by=DEFAULT&direction=DESC&viewType=listing"
-
+        base_url = "https://www.otodom.pl/pl/wyniki/wynajem/mieszkanie/mazowieckie/warszawa/warszawa/warszawa?limit=72&by=DEFAULT&direction=DESC"
         print("Loading existing data...")
         existing_df = self.load_existing_data()
         existing_ids = set(existing_df['listing_id'].tolist()) if not existing_df.empty else set()
